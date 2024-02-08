@@ -5,18 +5,20 @@ import MoreStories from "../components/more-stories";
 import HeroPost from "../components/hero-post";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
-import { getAllPostsForHome } from "../lib/api";
+import { getAllPostsForHome, getMenuItemsByMenuName } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
+import MenuHeader from "../components/menuHeader";
 
-export default function Index({ allPosts: { edges }, preview }) {
+export default function Index({ allPosts: { edges }, menuItems }) {
   const heroPost = edges[0]?.node;
   const morePosts = edges.slice(1);
 
   return (
-    <Layout preview={preview}>
+    <div>
       <Head>
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
+      <MenuHeader menuItems={menuItems} />
       <Container>
         <Intro />
         {heroPost && (
@@ -31,15 +33,16 @@ export default function Index({ allPosts: { edges }, preview }) {
         )}
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
-    </Layout>
+    </div>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allPosts = await getAllPostsForHome(preview);
+  const allMenuItems = await getMenuItemsByMenuName();
 
   return {
-    props: { allPosts, preview },
+    props: { allPosts, preview, menuItems: allMenuItems },
     revalidate: 10,
   };
 };
