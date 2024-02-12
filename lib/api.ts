@@ -27,6 +27,29 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   return json.data;
 }
 
+export async function submitForm(inputData) {
+  const data = await fetchAPI(
+    `
+    mutation MyMutation($phone: String!, $name: String!, $email: String!) {
+      sendContactFormCF(input: { phone: $phone, name: $name, email: $email }) {
+        email
+        name
+        phone
+      }
+    }`,
+    {
+      variables: {
+        input: {
+          email: inputData.email,
+          name: inputData.name,
+          phone: inputData.phone,
+        }
+      }
+    }
+  );
+  return data?.sendContactFormCF;
+}
+
 export async function getMenuItemsByMenuName() {
   const data = await fetchAPI(
     `

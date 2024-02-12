@@ -1,20 +1,41 @@
 import { GetStaticProps } from "next";
-import { getMenuItemsByMenuName } from "../lib/api";
 import MenuHeader from "../components/menuHeader";
+import { useState } from "react";
+import { getMenuItemsByMenuName, submitForm } from "../lib/api";
+import { gql, useMutation } from "@apollo/client";
 
 const Contact = ({ menuItems }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const ADD_CONTACT_ENTRY = gql`
+    mutation MyMutation($phone: String!, $name: String!, $email: String!) {
+      sendContactFormCF(input: { phone: $phone, name: $name, email: $email }) {
+        email
+        name
+        phone
+      }
+    }
+  `;
+
+  const [addContactEntry, { data }] = useMutation(ADD_CONTACT_ENTRY, {
+    variables: {
+      name: name,
+      email: email,
+      phone: phone,
+    },
+  });
+
   return (
     <div style={{ height: "100vh" }}>
       <MenuHeader menuItems={menuItems} />
       <h1>Contact</h1>
       <form
-        action=""
         className="w-1/2 mx-auto mt-8 p-6"
-        style={{
-          border: "none",
-          background: "transparent",
-          margin: "auto",
-          textAlign: "left",
+        onSubmit={(e) => {
+          e.preventDefault();
+          addContactEntry();
         }}
       >
         <div className="mb-4">
@@ -25,6 +46,8 @@ const Contact = ({ menuItems }) => {
             type="text"
             name="name"
             className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
@@ -36,6 +59,8 @@ const Contact = ({ menuItems }) => {
             type="email"
             name="email"
             className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -47,6 +72,8 @@ const Contact = ({ menuItems }) => {
             type="tel"
             name="phone"
             className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
 
