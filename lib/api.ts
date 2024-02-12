@@ -27,7 +27,25 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   return json.data;
 }
 
-export async function getJobs() {
+export async function getJobById(id) {
+  const data = await fetchAPI(`
+    query GET_JOB_BY_ID($id: ID!) {
+      job(id: $id) {
+        jobFields {
+          name
+          description
+        }
+      }
+    }
+  `, {
+    variables: { id },
+  },
+  );
+
+  return data.job;
+}
+
+export async function getAllJobs() {
   const data = await fetchAPI(`
     query GET_JOBS{
       jobs {

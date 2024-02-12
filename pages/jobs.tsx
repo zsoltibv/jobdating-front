@@ -1,8 +1,9 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
 import { useState } from "react";
-import { getJobs, getMenuItemsByMenuName } from "../lib/api";
+import { getAllJobs, getMenuItemsByMenuName } from "../lib/api";
 import { gql, useMutation } from "@apollo/client";
+import Link from "next/link";
 
 const Jobs = ({ menuItems, jobs }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,24 +28,26 @@ const Jobs = ({ menuItems, jobs }) => {
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
           {filteredJobs.map((job) => (
-            <div key={job.id} className="bg-gray-200 p-4">
-              <h2 className="text-xl font-bold">{job.jobFields.name}</h2>
-              <p>{job.jobFields.description}</p>
-              <div className="mt-2">
-                <strong>Locations:</strong>{" "}
-                {job.locations.nodes.map((obj) => obj.name).join(", ")}
+            <Link key={job.id} href={`/jobs/${job.id}`}>
+              <div key={job.id} className="bg-gray-200 p-4">
+                <h2 className="text-xl font-bold">{job.jobFields.name}</h2>
+                <p>{job.jobFields.description}</p>
+                <div className="mt-2">
+                  <strong>Locations:</strong>{" "}
+                  {job.locations.nodes.map((obj) => obj.name).join(", ")}
+                </div>
+                <div className="mt-2">
+                  <strong>Work Types:</strong>{" "}
+                  {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
+                </div>
+                <div className="mt-2">
+                  <strong>Categories:</strong>{" "}
+                  {job.categories.nodes
+                    .map((category) => category.name)
+                    .join(", ")}
+                </div>
               </div>
-              <div className="mt-2">
-                <strong>Work Types:</strong>{" "}
-                {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
-              </div>
-              <div className="mt-2">
-                <strong>Categories:</strong>{" "}
-                {job.categories.nodes
-                  .map((category) => category.name)
-                  .join(", ")}
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -56,7 +59,7 @@ export default Jobs;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allMenuItems = await getMenuItemsByMenuName();
-  const allJobs = await getJobs();
+  const allJobs = await getAllJobs();
 
   return {
     props: { menuItems: allMenuItems, jobs: allJobs },
