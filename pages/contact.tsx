@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
 import { useState } from "react";
-import { getMenuItemsByMenuName, submitForm } from "../lib/api";
+import { getMenuItemsByMenuName } from "../lib/api";
 import { gql, useMutation } from "@apollo/client";
 
 const Contact = ({ menuItems }) => {
@@ -19,13 +19,16 @@ const Contact = ({ menuItems }) => {
     }
   `;
 
-  const [addContactEntry, { data }] = useMutation(ADD_CONTACT_ENTRY, {
-    variables: {
-      name: name,
-      email: email,
-      phone: phone,
-    },
-  });
+  const [addContactEntry, { data, loading, error }] = useMutation(
+    ADD_CONTACT_ENTRY,
+    {
+      variables: {
+        name: name,
+        email: email,
+        phone: phone,
+      },
+    }
+  );
 
   return (
     <div style={{ height: "100vh" }}>
@@ -85,6 +88,8 @@ const Contact = ({ menuItems }) => {
             Submit
           </button>
         </div>
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
       </form>
     </div>
   );

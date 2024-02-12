@@ -27,27 +27,36 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   return json.data;
 }
 
-export async function submitForm(inputData) {
-  const data = await fetchAPI(
-    `
-    mutation MyMutation($phone: String!, $name: String!, $email: String!) {
-      sendContactFormCF(input: { phone: $phone, name: $name, email: $email }) {
-        email
-        name
-        phone
-      }
-    }`,
-    {
-      variables: {
-        input: {
-          email: inputData.email,
-          name: inputData.name,
-          phone: inputData.phone,
+export async function getJobs() {
+  const data = await fetchAPI(`
+    query GET_JOBS{
+      jobs {
+        nodes {
+          jobFields {
+            name
+            description
+          }
+          id
+          locations {
+            nodes {
+              name
+            }
+          }
+          workTypes {
+            nodes {
+              name
+            }
+          }
+          categories {
+            nodes {
+              name
+            }
+          }
         }
       }
     }
-  );
-  return data?.sendContactFormCF;
+  `);
+  return data.jobs.nodes;
 }
 
 export async function getMenuItemsByMenuName() {
