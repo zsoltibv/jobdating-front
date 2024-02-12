@@ -5,6 +5,56 @@ import MenuHeader from "../../components/menuHeader";
 import { getAllJobs, getJobById, getMenuItemsByMenuName } from "../../lib/api";
 
 const Job = ({ menuItems, job }) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [resume, setResume] = useState<string>("");
+
+  console.log(job.id);
+
+  const ADD_JOB_APPLICATION = gql`
+    mutation MyMutation(
+      $jobId: ID!
+      $firstName: String!
+      $lastName: String!
+      $email: String!
+      $phone: String!
+      $resume: String!
+    ) {
+      submitJobApplication(
+        input: {
+          jobId: $jobId
+          firstName: $firstName
+          lastName: $lastName
+          email: $email
+          phone: $phone
+          resume: $resume
+        }
+      ) {
+        firstName
+        lastName
+        email
+        phone
+        resume
+      }
+    }
+  `;
+
+  const [addJobApplication, { data, loading, error }] = useMutation(
+    ADD_JOB_APPLICATION,
+    {
+      variables: {
+        jobId: job.id,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        resume: resume,
+      },
+    }
+  );
+
   return (
     <div style={{ height: "100vh" }}>
       <MenuHeader menuItems={menuItems} />
@@ -12,6 +62,99 @@ const Job = ({ menuItems, job }) => {
         <h1 className="text-3xl mb-6">{job.jobFields.name}</h1>
         <div className="flex">
           <p>{job.jobFields.description}</p>
+        </div>
+
+        <div className="apply mt-6">
+          <hr />
+          <h3 className="font-bold my-6">Apply to this Job</h3>
+          <form
+            className="w-1/3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              addJobApplication();
+            }}
+          >
+            <div className="mb-4">
+              <label htmlFor="firstName" className="text-gray-600">
+                First Name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="lastName" className="text-gray-600">
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="email" className="text-gray-600">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="phone" className="text-gray-600">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+
+            <div className="mb-4">
+              <label htmlFor="resume" className="text-gray-600">
+                Resume
+              </label>
+              <input
+                type="file"
+                name="resume"
+                accept=".pdf, .doc, .docx" // Add accepted file formats
+                onChange={(e) => {
+                  const fileReader = new FileReader();
+                  fileReader.onloadend = () => {
+                    setResume(fileReader.result as string); // Explicit cast to string
+                  };
+                  fileReader.readAsDataURL(e.target.files[0]);
+                }}
+              />
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="w-full px-5 py-2 text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-blue-700"
+              >
+                Submit
+              </button>
+            </div>
+            {loading && <p>Loading...</p>}
+            {error && <p>Error: {error.message}</p>}
+          </form>
         </div>
       </div>
     </div>
