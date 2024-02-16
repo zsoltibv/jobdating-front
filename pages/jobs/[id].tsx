@@ -10,9 +10,11 @@ const Job = ({ menuItems, job }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [resume, setResume] = useState("");
-
-  console.log(job.id);
+  const [resume, setResume] = useState<{
+    data: string;
+    type: string;
+  }>(null);
+  const [recaptcha, setRecaptchaValue] = useState("");
 
   const ADD_JOB_APPLICATION = gql`
     mutation MyMutation(
@@ -21,7 +23,7 @@ const Job = ({ menuItems, job }) => {
       $lastName: String!
       $email: String!
       $phone: String!
-      $resume: String!
+      $resume: ResumeInput!
     ) {
       submitJobApplication(
         input: {
@@ -53,12 +55,9 @@ const Job = ({ menuItems, job }) => {
         phone: phone,
         resume: resume,
       },
+      errorPolicy: "all",
     }
   );
-
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
 
   return (
     <div style={{ height: "100vh" }}>
@@ -147,7 +146,7 @@ const Job = ({ menuItems, job }) => {
                       const base64String = (fileReader.result as string).split(
                         ","
                       )[1]; // Extract base64 part
-                      setResume(base64String);
+                      setResume({ data: base64String, type: file.type });
                     };
                     fileReader.readAsDataURL(file);
                   }
@@ -158,7 +157,7 @@ const Job = ({ menuItems, job }) => {
             <div className="mb-4">
               <ReCAPTCHA
                 sitekey="6LcR9XQpAAAAAIDIfJ36ZbGhHme95gzVIPwzbHvZ"
-                onChange={handleRecaptchaChange}
+                onChange={(e) => setRecaptchaValue(e.target.value)}
               />
             </div>
 
