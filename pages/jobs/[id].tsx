@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import MenuHeader from "../../components/menuHeader";
+import ReCAPTCHA from "react-google-recaptcha";
 import { getAllJobs, getJobById, getMenuItemsByMenuName } from "../../lib/api";
 
 const Job = ({ menuItems, job }) => {
@@ -9,7 +10,7 @@ const Job = ({ menuItems, job }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [resume, setResume] = useState<string>("");
+  const [resume, setResume] = useState("");
 
   console.log(job.id);
 
@@ -54,6 +55,10 @@ const Job = ({ menuItems, job }) => {
       },
     }
   );
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   return (
     <div style={{ height: "100vh" }}>
@@ -135,12 +140,25 @@ const Job = ({ menuItems, job }) => {
                 name="resume"
                 accept=".pdf, .doc, .docx" // Add accepted file formats
                 onChange={(e) => {
-                  const fileReader = new FileReader();
-                  fileReader.onloadend = () => {
-                    setResume(fileReader.result as string); // Explicit cast to string
-                  };
-                  fileReader.readAsDataURL(e.target.files[0]);
+                  const file = e.target.files[0];
+                  if (file) {
+                    const fileReader = new FileReader();
+                    fileReader.onloadend = () => {
+                      const base64String = (fileReader.result as string).split(
+                        ","
+                      )[1]; // Extract base64 part
+                      setResume(base64String);
+                    };
+                    fileReader.readAsDataURL(file);
+                  }
                 }}
+              />
+            </div>
+
+            <div className="mb-4">
+              <ReCAPTCHA
+                sitekey="6LcR9XQpAAAAAIDIfJ36ZbGhHme95gzVIPwzbHvZ"
+                onChange={handleRecaptchaChange}
               />
             </div>
 
