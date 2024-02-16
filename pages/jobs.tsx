@@ -42,7 +42,7 @@ const Jobs = ({ menuItems, jobs }) => {
                 </div>
                 <div className="mt-2">
                   <strong>Categories:</strong>{" "}
-                  {job.categories.nodes
+                  {job.jobCategories.nodes
                     .map((category) => category.name)
                     .join(", ")}
                 </div>

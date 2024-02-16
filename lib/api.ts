@@ -52,10 +52,14 @@ export async function getAllJobs() {
       jobs {
         nodes {
           jobFields {
-            name
             description
+            name
           }
-          id
+          jobCategories {
+            nodes {
+              name
+            }
+          }
           locations {
             nodes {
               name
@@ -66,11 +70,7 @@ export async function getAllJobs() {
               name
             }
           }
-          categories {
-            nodes {
-              name
-            }
-          }
+          id
         }
       }
     }
