@@ -11,7 +11,10 @@ module.exports = {
         "accent-2": "#EAEAEA",
         "accent-7": "#333",
         success: "#0070f3",
-        cyan: "#79FFE1",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        "open-sans": ["Open Sans", "sans-serif"],
       },
       spacing: {
         28: "7rem",

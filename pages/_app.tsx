@@ -3,7 +3,7 @@ import "../styles/index.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://cms-wordpress-app.local/graphql",
+  uri: "https://api.jobdating.ro?graphql",
   cache: new InMemoryCache(),
 });
 
