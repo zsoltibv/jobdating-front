@@ -28,7 +28,8 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
 }
 
 export async function getJobById(id) {
-  const data = await fetchAPI(`
+  const data = await fetchAPI(
+    `
     query GET_JOB_BY_ID($id: ID!) {
       job(id: $id) {
         jobFields {
@@ -38,12 +39,57 @@ export async function getJobById(id) {
         id
       }
     }
-  `, {
-    variables: { id },
-  },
+  `,
+    {
+      variables: { id },
+    }
   );
 
   return data.job;
+}
+
+export async function getAllJobWorkTypes() {
+  const data = await fetchAPI(`
+    query GET_JOB_WORKTYPES {
+      workTypes {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+  `);
+
+  return data.workTypes.edges.map((edge) => edge.node);
+}
+
+export async function getAllJobLocations() {
+  const data = await fetchAPI(`
+    query GET_JOB_LOCATIONS {
+      locations {
+        nodes {
+          name
+        }
+      }
+    }
+  `);
+
+  return data.locations.nodes;
+}
+
+export async function getAllJobCategories() {
+  const data = await fetchAPI(`
+    query GET_JOB_CATEGORIES {
+      jobCategories {
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }`);
+  return data.jobCategories.edges.map((edge) => edge.node);
 }
 
 export async function getAllJobs() {
@@ -120,7 +166,7 @@ export async function getPreviewPost(id, idType = "DATABASE_ID") {
     }`,
     {
       variables: { id, idType },
-    },
+    }
   );
   return data.post;
 }
@@ -176,7 +222,7 @@ export async function getAllPostsForHome(preview) {
         onlyEnabled: !preview,
         preview,
       },
-    },
+    }
   );
 
   return data?.posts;
@@ -236,9 +282,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         ...PostFields
         content
         ${
-    // Only some of the fields of a revision are considered as there are some inconsistencies
-    isRevision
-      ? `
+          // Only some of the fields of a revision are considered as there are some inconsistencies
+          isRevision
+            ? `
         revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
           edges {
             node {
@@ -254,8 +300,8 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
           }
         }
         `
-      : ""
-    }
+            : ""
+        }
       }
       posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
@@ -271,7 +317,7 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         id: isDraft ? postPreview.id : slug,
         idType: isDraft ? "DATABASE_ID" : "SLUG",
       },
-    },
+    }
   );
 
   // Draft posts may not have an slug
