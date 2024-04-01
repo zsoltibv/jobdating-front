@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { timeSince } from "../helpers/TimeHelper";
 
 const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,7 +39,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
   };
 
   return (
-    <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 font-open-sans">
+    <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 font-open-sans pb-8">
       {/* Job Search Grid */}
       <div className="py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <input
@@ -128,6 +129,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
                   <div className="mt-2">
                     {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
                   </div>
+                  <div className="mt-2">{timeSince(job.date)}</div>
                 </div>
               </div>
             </div>

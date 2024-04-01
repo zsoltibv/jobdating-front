@@ -9,6 +9,7 @@ import {
 } from "../lib/api";
 import HeroSlider from "../components/heroSlider";
 import JobSection from "../components/jobSections";
+import FooterSection from "../components/footerSection";
 
 const Index = ({
   menuItems,
@@ -36,6 +37,10 @@ const Index = ({
         jobLocations={jobLocations}
         jobWorkTypes={jobWorkTypes}
       />
+      <FooterSection
+        menuItems={menuItems}
+        jobCategories={jobCategories}
+      ></FooterSection>
     </div>
   );
 };
