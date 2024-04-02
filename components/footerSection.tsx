@@ -16,9 +16,9 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               alt="Home"
             />
           </Link>
-          <p className="mb-2">1234 Street Name, City</p>
-          <p className="mb-2">Tel: 123-456-7890</p>
-          <p>Email: example@example.com</p>
+          <p className="mb-2">Str. Observatorului nr 90/06, Cluj-Napoca</p>
+          <p className="mb-2">Tel: +40 720 540 025</p>
+          <p>Email: office@jobdating.ro</p>
         </div>
 
         {/* Column 2: Menu Items */}

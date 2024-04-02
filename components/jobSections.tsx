@@ -7,14 +7,18 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [locationFilter, setLocationFilter] = useState("");
   const [workTypeFilter, setWorkTypeFilter] = useState("");
-  const [filteredJobs, setFilteredJobs] = useState(jobs);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [jobsPerPage] = useState(10);
+
+  const [filteredJobs, setFilteredJobs] = useState([]);
 
   useEffect(() => {
+    // Filter directly only for workTypeFilter changes
     filterJobs();
-  }, [workTypeFilter]); // Depend only on workTypeFilter for direct filtering
+  }, [workTypeFilter, currentPage]);
 
   const filterJobs = () => {
-    const filtered = jobs.filter(
+    let filtered = jobs.filter(
       (job) =>
         job.jobFields.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
         (categoryFilter === "" ||
@@ -30,13 +34,44 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
             (workType) => workType.name === workTypeFilter
           ))
     );
+
+    // Implement pagination within filtered results
+    const indexOfLastJob = currentPage * jobsPerPage;
+    const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+    filtered = filtered.slice(indexOfFirstJob, indexOfLastJob);
+
     setFilteredJobs(filtered);
   };
 
-  // Call filterJobs for other filters using a button click instead of direct filtering
   const handleSearch = () => {
+    setCurrentPage(1); // Reset to page 1 to show results from the beginning
     filterJobs();
   };
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Calculate total pages
+  const pageCount = Math.ceil(
+    jobs.filter(
+      (job) =>
+        job.jobFields.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (categoryFilter === "" ||
+          job.jobCategories.nodes.some(
+            (category) => category.name === categoryFilter
+          )) &&
+        (locationFilter === "" ||
+          job.locations.nodes.some(
+            (location) => location.name === locationFilter
+          )) &&
+        (workTypeFilter === "" ||
+          job.workTypes.nodes.some(
+            (workType) => workType.name === workTypeFilter
+          ))
+    ).length / jobsPerPage
+  );
 
   return (
     <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 font-open-sans pb-8">
@@ -134,6 +169,21 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
               </div>
             </div>
           </Link>
+        ))}
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="pagination-controls flex justify-center space-x-4 mt-4">
+        {Array.from({ length: pageCount }, (_, i) => i + 1).map((number) => (
+          <button
+            key={number}
+            onClick={() => handlePageChange(number)}
+            className={`py-2 px-4 rounded ${
+              currentPage === number ? "bg-cyan-400 text-white" : "bg-white"
+            }`}
+          >
+            {number}
+          </button>
         ))}
       </div>
     </div>
