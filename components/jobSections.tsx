@@ -82,7 +82,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
           placeholder="Nume job sau cuvinte cheie"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="py-2 px-4 border border-gray-300 rounded"
+          className="py-2 px-4 border border-gray-300 rounded focus:outline-none"
         />
         <select
           value={categoryFilter}
@@ -110,7 +110,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
         </select>
         <button
           onClick={handleSearch}
-          className="bg-cyan-400 text-white font-inter py-2 px-4 rounded hover:bg-opacity-90 transition duration-300 ease-in-out w-full"
+          className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 px-12 rounded hover:bg-opacity-90 transition duration-300 ease-in-out"
         >
           <p className="text-base font-regular font-open-sans">Căutare</p>
         </button>
@@ -145,9 +145,12 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
         {filteredJobs.map((job) => (
           <Link key={job.id} href={`/jobs/${job.id}`}>
             <div key={job.id} className="bg-white border px-8 rounded-md">
-              <h2 className="font-semibold text-3xl py-6 text-gray-800">
-                {job.jobFields.name}
-              </h2>
+              <div className="flex justify-between items-center">
+                <h2 className="font-semibold text-2xl py-6 text-gray-800">
+                  {job.jobFields.name}
+                </h2>
+                <p className="text-cyan-400 font-semibold">VEZI JOB</p>
+              </div>
               <hr />
               <div className="job-info pt-1.5 pb-4 flex justify-between text-gray-600 font-regular">
                 <div className="left-job-info">

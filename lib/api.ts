@@ -36,6 +36,21 @@ export async function getJobById(id) {
           name
           description
         }
+        jobCategories {
+          nodes {
+            name
+          }
+        }
+        locations {
+          nodes {
+            name
+          }
+        }
+        workTypes {
+          nodes {
+            name
+          }
+        }
         id
       }
     }

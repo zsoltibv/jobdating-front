@@ -3,9 +3,17 @@ import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import MenuHeader from "../../components/menuHeader";
 import ReCAPTCHA from "react-google-recaptcha";
-import { getAllJobs, getJobById, getMenuItemsByMenuName } from "../../lib/api";
+import {
+  getAllJobCategories,
+  getAllJobs,
+  getJobById,
+  getMenuItemsByMenuName,
+} from "../../lib/api";
+import JobHeroSection from "../../components/jobHeroSection";
+import FooterSection from "../../components/footerSection";
+import SimilarJobsSection from "../../components/similarJobsSection";
 
-const Job = ({ menuItems, job }) => {
+const Job = ({ menuItems, job, jobCategories, allJobs }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -59,99 +67,110 @@ const Job = ({ menuItems, job }) => {
     }
   );
 
+  const image =
+    "http://api.jobdating.ro/wp-content/uploads/2024/04/jobSectionBg-scaled.jpg";
+
+  const currentJobCategories = job.jobCategories.nodes.map(
+    (category) => category.name
+  );
+
   return (
     <div style={{ height: "100vh" }}>
       <MenuHeader menuItems={menuItems} />
-      <div className="jobs-container p-8 mx-auto">
-        <h1 className="text-3xl mb-6">{job.jobFields.name}</h1>
-        <div className="flex">
-          <p>{job.jobFields.description}</p>
+      <JobHeroSection image={image} job={job}></JobHeroSection>
+      <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 pb-8">
+        <h1 className="text-3xl my-6 font-open-sans">Descriere</h1>
+        <div className="flex font-medium font-inter text-gray-500">
+          <div
+            dangerouslySetInnerHTML={{ __html: job.jobFields.description }}
+          />
         </div>
 
-        <div className="apply mt-6">
+        <div className="apply mt-6 font-open-sans">
           <hr />
-          <h3 className="font-bold my-6">Apply to this Job</h3>
+          <h1 className="text-3xl my-6">Aplică</h1>
           <form
-            className="w-1/3"
             onSubmit={(e) => {
               e.preventDefault();
               addJobApplication();
             }}
           >
-            <div className="mb-4">
-              <label htmlFor="firstName" className="text-gray-600">
-                First Name
-              </label>
-              <input
-                type="text"
-                name="firstName"
-                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </div>
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="mb-4">
+                <label htmlFor="firstName" className="text-gray-600">
+                  Nume*
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
 
-            <div className="mb-4">
-              <label htmlFor="lastName" className="text-gray-600">
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="lastName"
-                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
+              <div className="mb-4">
+                <label htmlFor="lastName" className="text-gray-600">
+                  Prenume*
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
 
-            <div className="mb-4">
-              <label htmlFor="email" className="text-gray-600">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="text-gray-600">
+                  Email*
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
 
-            <div className="mb-4">
-              <label htmlFor="phone" className="text-gray-600">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                className="w-full px-4 py-2 border-b border-gray-300 focus:outline-none focus:border-gray-800"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            </div>
+              <div className="mb-4">
+                <label htmlFor="phone" className="text-gray-600">
+                  Nr. de telefon*
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
 
-            <div className="mb-4">
-              <label htmlFor="resume" className="text-gray-600">
-                Resume
-              </label>
-              <input
-                type="file"
-                name="resume"
-                accept=".pdf, .doc, .docx" // Add accepted file formats
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  if (file) {
-                    const fileReader = new FileReader();
-                    fileReader.onloadend = () => {
-                      const base64String = (fileReader.result as string).split(
-                        ","
-                      )[1]; // Extract base64 part
-                      setResume({ data: base64String, type: file.type });
-                    };
-                    fileReader.readAsDataURL(file);
-                  }
-                }}
-              />
+              <div className="mb-4">
+                <label htmlFor="resume" className="text-gray-600 block mb-3">
+                  Incarca CV
+                </label>
+                <input
+                  type="file"
+                  name="resume"
+                  accept=".pdf, .doc, .docx" // Add accepted file formats
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      const fileReader = new FileReader();
+                      fileReader.onloadend = () => {
+                        const base64String = (
+                          fileReader.result as string
+                        ).split(",")[1]; // Extract base64 part
+                        setResume({ data: base64String, type: file.type });
+                      };
+                      fileReader.readAsDataURL(file);
+                    }
+                  }}
+                />
+              </div>
             </div>
 
             <div className="mb-4">
@@ -164,9 +183,9 @@ const Job = ({ menuItems, job }) => {
             <div>
               <button
                 type="submit"
-                className="w-full px-5 py-2 text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:bg-blue-700"
+                className="px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
               >
-                Submit
+                Aplică
               </button>
             </div>
             {loading && <p>Loading...</p>}
@@ -174,6 +193,14 @@ const Job = ({ menuItems, job }) => {
           </form>
         </div>
       </div>
+      <SimilarJobsSection
+        allJobs={allJobs}
+        jobCategory={currentJobCategories}
+      ></SimilarJobsSection>
+      <FooterSection
+        menuItems={menuItems}
+        jobCategories={jobCategories}
+      ></FooterSection>
     </div>
   );
 };
@@ -198,9 +225,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const allMenuItems = await getMenuItemsByMenuName();
   const job = await getJobById(params.id);
+  const jobCategories = await getAllJobCategories();
+  const allJobs = await getAllJobs();
 
   return {
-    props: { menuItems: allMenuItems, job },
+    props: { menuItems: allMenuItems, job, jobCategories, jobs: allJobs },
     revalidate: 10,
   };
 };

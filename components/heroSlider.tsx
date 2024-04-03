@@ -4,35 +4,30 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const HeroSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isRunning, setIsRunning] = useState(true);
 
   // Change image every 3 seconds
   useEffect(() => {
     let interval;
-    if (isRunning) {
-      interval = setInterval(() => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 3000);
-    }
+    interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 2500);
     return () => {
       if (interval) {
         clearInterval(interval);
       }
     };
-  }, [isRunning, images.length]);
+  }, [images.length]);
 
   // Navigate to previous image
   const prevSlide = () => {
     setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-    setIsRunning(false);
   };
 
   // Navigate to next image
   const nextSlide = () => {
     setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-    setIsRunning(false);
   };
 
   // Generate the image slides
@@ -59,7 +54,7 @@ const HeroSlider = ({ images }) => {
             <br /> tău job cât mai curând posibil!
           </p>
           <div className="flex justify-start space-x-4 pt-16">
-            <button className="bg-cyan-400 text-white font-inter py-2 px-12 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+            <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 px-12 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
               <p className="text-base font-regular font-open-sans">
                 Înscrie-te acum
               </p>
