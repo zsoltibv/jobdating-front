@@ -13,7 +13,7 @@ import JobHeroSection from "../../components/jobHeroSection";
 import FooterSection from "../../components/footerSection";
 import SimilarJobsSection from "../../components/similarJobsSection";
 
-const Job = ({ menuItems, job, jobCategories, allJobs }) => {
+const Job = ({ menuItems, job, jobCategories }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -79,7 +79,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
       <MenuHeader menuItems={menuItems} />
       <JobHeroSection image={image} job={job}></JobHeroSection>
       <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 pb-8">
-        <h1 className="text-3xl my-6 font-open-sans">Descriere</h1>
+        <h1 className="md:text-3xl text-2xl my-6 font-open-sans">Descriere</h1>
         <div className="flex font-medium font-inter text-gray-500">
           <div
             dangerouslySetInnerHTML={{ __html: job.jobFields.description }}
@@ -88,7 +88,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
 
         <div className="apply mt-6 font-open-sans">
           <hr />
-          <h1 className="text-3xl my-6">Aplică</h1>
+          <h1 className="md:text-3xl text-2xl my-6">Aplică</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -96,7 +96,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
             }}
           >
             <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="mb-4">
+              <div className="md:mb-4">
                 <label htmlFor="firstName" className="text-gray-600">
                   Nume*
                 </label>
@@ -109,7 +109,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div className="md:mb-4">
                 <label htmlFor="lastName" className="text-gray-600">
                   Prenume*
                 </label>
@@ -122,7 +122,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div className="md:mb-4">
                 <label htmlFor="email" className="text-gray-600">
                   Email*
                 </label>
@@ -135,7 +135,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div className="md:mb-4">
                 <label htmlFor="phone" className="text-gray-600">
                   Nr. de telefon*
                 </label>
@@ -183,7 +183,7 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
             <div>
               <button
                 type="submit"
-                className="px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
+                className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
               >
                 Aplică
               </button>
@@ -194,7 +194,6 @@ const Job = ({ menuItems, job, jobCategories, allJobs }) => {
         </div>
       </div>
       <SimilarJobsSection
-        allJobs={allJobs}
         jobCategory={currentJobCategories}
       ></SimilarJobsSection>
       <FooterSection
@@ -226,10 +225,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const allMenuItems = await getMenuItemsByMenuName();
   const job = await getJobById(params.id);
   const jobCategories = await getAllJobCategories();
-  const allJobs = await getAllJobs();
 
   return {
-    props: { menuItems: allMenuItems, job, jobCategories, jobs: allJobs },
+    props: { menuItems: allMenuItems, job, jobCategories },
     revalidate: 10,
   };
 };

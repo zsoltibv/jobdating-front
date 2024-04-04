@@ -11,6 +11,8 @@ const { protocol, hostname, port, pathname } = new URL(
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+  basePath: "",
+  assetPrefix: "",
   images: {
     domains: ["1.gravatar.com", "cms-wordpress-app.local"],
     remotePatterns: [

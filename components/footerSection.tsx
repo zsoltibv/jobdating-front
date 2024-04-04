@@ -6,9 +6,9 @@ const FooterSection = ({ menuItems, jobCategories }) => {
 
   return (
     <footer className="bg-neutral-600 text-white font-inter">
-      <div className="max-w-[1640px] px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  py-24">
+      <div className="max-w-[1640px] px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:py-24 py-14">
         {/* Column 1: Logo, Street, Tel, and Mail */}
-        <div>
+        <div className="flex flex-col gap-1">
           <Link href="/">
             <img
               className="h-12 w-auto mb-8"
@@ -16,17 +16,17 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               alt="Home"
             />
           </Link>
-          <p className="mb-2">Str. Observatorului nr 90/06, Cluj-Napoca</p>
-          <p className="mb-2">Tel: +40 720 540 025</p>
+          <p>Str. Observatorului nr 90/06, Cluj-Napoca</p>
+          <p>Tel: +40 720 540 025</p>
           <p>Email: office@jobdating.ro</p>
         </div>
 
         {/* Column 2: Menu Items */}
         <div>
           <h2 className="font-bold mb-4 font-open-sans text-2xl">Menu</h2>
-          <ul>
+          <ul className="flex flex-col gap-1">
             {menuItems.map((item) => (
-              <li key={item.id} className="mb-2">
+              <li key={item.id}>
                 <Link href={item.url}>
                   <p className="hover:text-gray-300">{item.label}</p>
                 </Link>
@@ -40,9 +40,9 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           <h2 className="font-bold mb-4 font-open-sans text-2xl">
             Job Categories
           </h2>
-          <ul>
+          <ul className="flex flex-col gap-1">
             {jobCategories.map((category, index) => (
-              <li key={index} className="mb-2">
+              <li key={index}>
                 <Link href={`/jobs/${category.slug}`}>
                   <p className="hover:text-gray-300">{category.name}</p>
                 </Link>
@@ -56,8 +56,8 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           <h2 className="font-bold mb-4 font-open-sans text-2xl">
             Termeni Legali
           </h2>
-          <ul>
-            <li className="mb-2">
+          <ul className="flex flex-col gap-1">
+            <li>
               <Link href="/termeni-si-conditii">
                 <p className="hover:text-gray-300">Termeni și Condiții</p>
               </Link>

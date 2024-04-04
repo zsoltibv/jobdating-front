@@ -146,10 +146,12 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
           <Link key={job.id} href={`/jobs/${job.id}`}>
             <div key={job.id} className="bg-white border px-8 rounded-md">
               <div className="flex justify-between items-center">
-                <h2 className="font-semibold text-2xl py-6 text-gray-800">
+                <h2 className="font-semibold md:text-2xl text-xl py-6 text-gray-800">
                   {job.jobFields.name}
                 </h2>
-                <p className="text-cyan-400 font-semibold">VEZI JOB</p>
+                <p className="text-cyan-400 font-semibold text-sm md:text-base">
+                  VEZI JOB
+                </p>
               </div>
               <hr />
               <div className="job-info pt-1.5 pb-4 flex justify-between text-gray-600 font-regular">
@@ -164,10 +166,12 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
                   <div className="mt-2">
                     {job.locations.nodes.map((obj) => obj.name).join(", ")}
                   </div>
-                  <div className="mt-2">
+                  <div className="mt-2 md:block hidden">
                     {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
                   </div>
-                  <div className="mt-2">{timeSince(job.date)}</div>
+                  <div className="mt-2 md:block hidden">
+                    {timeSince(job.date)}
+                  </div>
                 </div>
               </div>
             </div>

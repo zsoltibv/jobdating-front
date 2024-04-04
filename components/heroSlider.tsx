@@ -4,70 +4,79 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const HeroSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true); // Track if the image is loading
+  const [currentImage, setCurrentImage] = useState(images[0]); // Directly manage the current image
 
-  // Change image every 3 seconds
   useEffect(() => {
-    let interval;
-    interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2500);
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
+    setIsLoading(true); // Start loading the new image
+    const img = new Image();
+    img.src = images[currentIndex];
+    img.onload = () => {
+      setIsLoading(false); // Set loading to false once the image is loaded
+      setCurrentImage(images[currentIndex]); // Update the current image
     };
-  }, [images.length]);
+  }, [currentIndex, images]);
+
+  // Change image every 3 seconds, but only if the current image has finished loading
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isLoading) {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isLoading, images.length]);
 
   // Navigate to previous image
   const prevSlide = () => {
-    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+    if (!isLoading) {
+      setCurrentIndex(
+        currentIndex === 0 ? images.length - 1 : currentIndex - 1
+      );
+    }
   };
 
   // Navigate to next image
   const nextSlide = () => {
-    setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+    if (!isLoading) {
+      setCurrentIndex(
+        currentIndex === images.length - 1 ? 0 : currentIndex + 1
+      );
+    }
   };
 
-  // Generate the image slides
-  const imageSlides = images.map((image, index) => (
-    <div
-      key={index}
-      style={{ display: index === currentIndex ? "block" : "none" }}
-    >
-      <img src={image} alt={`Slide ${index}`} />
-    </div>
-  ));
-
   return (
-    <div className="hero-slider max-h-[650px] flex justify-center items-center overflow-hidden relative">
-      {imageSlides}
-      <div className="absolute inset-0 bg-zinc-700 bg-opacity-80 z-0"></div>
-      <div className="absolute inset-0 z-10 flex justify-center items-center">
+    <div
+      className="hero-slider md:max-h-[650px] min-h-[550px] flex justify-center items-center overflow-hidden relative"
+      style={{
+        backgroundImage: `url(${images[currentIndex]})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-zinc-700 bg-opacity-80 z-10"></div>
+      <div className="absolute inset-0 z-20 flex justify-center items-center">
         <div className="max-w-[1640px] w-full mx-auto text-left px-4">
-          <h1 className="text-white font-open-sans text-5xl font-regular mb-4">
+          <h1 className="text-white font-open-sans md:text-5xl text-3xl font-regular mb-4">
             Întâlneşte-ți locul tău de muncă!
           </h1>
-          <p className="text-white font-inter font-light text-xl">
-            Înregistrează-te în baza noastră de date pentru a întâlni noul
-            <br /> tău job cât mai curând posibil!
+          <p className="text-white font-inter font-light md:text-xl text-md max-w-md">
+            Înregistrează-te în baza noastră de date pentru a întâlni noul tău
+            job cât mai curând posibil!
           </p>
           <div className="flex justify-start space-x-4 pt-16">
-            <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 px-12 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-              <p className="text-base font-regular font-open-sans">
-                Înscrie-te acum
-              </p>
+            <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+              Înscrie-te acum
             </button>
-            <button className="bg-transparent text-white border border-white font-inter py-2 px-12 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-              <p className="text-base font-regular font-open-sans">
-                Trimite o cerere
-              </p>
+            <button className="bg-transparent text-white border border-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+              Trimite o cerere
             </button>
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 right-0 z-20 space-x-3 px-6 py-3 bg-gray-100">
+      <div className="absolute bottom-0 right-0 z-20 space-x-3 md:px-6 px-3 md:py-3 py-1.5 bg-gray-100">
         <button onClick={prevSlide} className="text-black">
           <div className="text-xl">
             <FontAwesomeIcon icon={faArrowLeft} />
