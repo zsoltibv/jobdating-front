@@ -228,13 +228,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log("Fetching job for ID:", params.id);
-  const job = await getJobById(params.id);
-  if (!job) {
-    console.log("No job found for ID:", params.id);
+  if (!params?.id) {
+    console.log("Job ID is undefined or invalid in getStaticProps");
     return { notFound: true };
   }
 
+  const job = await getJobById(params.id);
   const allMenuItems = await getMenuItemsByMenuName();
   const jobCategories = await getAllJobCategories();
 
