@@ -12,8 +12,10 @@ import {
 import JobHeroSection from "../../components/jobHeroSection";
 import FooterSection from "../../components/footerSection";
 import SimilarJobsSection from "../../components/similarJobsSection";
+import { useRouter } from "next/router";
 
 const Job = ({ menuItems, job, jobCategories }) => {
+  const router = useRouter();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -73,6 +75,10 @@ const Job = ({ menuItems, job, jobCategories }) => {
   const currentJobCategories = job.jobCategories.nodes.map(
     (category) => category.name
   );
+
+  if (router.isFallback) {
+    return <div>Se incarca...</div>;
+  }
 
   return (
     <div style={{ height: "100vh" }}>
@@ -176,7 +182,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
             <div className="mb-4">
               <ReCAPTCHA
                 sitekey="6LcR9XQpAAAAAIDIfJ36ZbGhHme95gzVIPwzbHvZ"
-                onChange={(e) => setRecaptchaValue(e.target.value)}
+                onChange={setRecaptchaValue}
               />
             </div>
 
@@ -222,8 +228,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const allMenuItems = await getMenuItemsByMenuName();
+  console.log("Fetching job for ID:", params.id);
   const job = await getJobById(params.id);
+  if (!job) {
+    console.log("No job found for ID:", params.id);
+    return { notFound: true };
+  }
+
+  const allMenuItems = await getMenuItemsByMenuName();
   const jobCategories = await getAllJobCategories();
 
   return {
