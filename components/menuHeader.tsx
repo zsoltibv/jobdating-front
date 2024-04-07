@@ -7,7 +7,6 @@ const MenuHeader = ({ menuItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    console.log("toggleMenu");
     setIsMenuOpen(!isMenuOpen);
   };
 

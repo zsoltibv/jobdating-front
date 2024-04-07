@@ -12,7 +12,7 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 const client = new ApolloClient({
-  uri: "https://api.jobdating.ro?graphql",
+  uri: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
   cache: new InMemoryCache(),
 });
 

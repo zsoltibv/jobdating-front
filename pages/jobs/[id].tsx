@@ -20,6 +20,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [resume, setResume] = useState<{
     data: string;
     type: string;
@@ -51,13 +52,16 @@ const Job = ({ menuItems, job, jobCategories }) => {
         phone
         resume
         message
+        errors
       }
     }
   `;
 
-  const [addJobApplication, { data, loading, error }] = useMutation(
-    ADD_JOB_APPLICATION,
-    {
+  const [addJobApplicationCF, { data, loading, error }] =
+    useMutation(ADD_JOB_APPLICATION);
+
+  const addJobApplication = async () => {
+    const result = await addJobApplicationCF({
       variables: {
         jobId: job.id,
         firstName: firstName,
@@ -67,8 +71,14 @@ const Job = ({ menuItems, job, jobCategories }) => {
         resume: resume,
       },
       errorPolicy: "all",
+    });
+
+    if (result.data.submitJobApplication?.errors) {
+      setMessage(result.data.submitJobApplication?.errors[0]);
+    } else {
+      setMessage(result.data.submitJobApplication?.message);
     }
-  );
+  };
 
   const image =
     "http://api.jobdating.ro/wp-content/uploads/2024/04/jobSectionBg-scaled.jpg";
@@ -152,6 +162,11 @@ const Job = ({ menuItems, job, jobCategories }) => {
                   className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  pattern="(\+4)?07[0-9]{8}"
+                  placeholder="07xxxxxxxx"
+                  title="Format: 07xxxxxxxx"
+                  maxLength={10}
+                  required
                 />
               </div>
 
@@ -166,6 +181,25 @@ const Job = ({ menuItems, job, jobCategories }) => {
                   onChange={(e) => {
                     const file = e.target.files[0];
                     if (file) {
+                      if (file.size > 5 * 1024 * 1024) {
+                        // File exceeds 5MB
+                        alert("Fisierul este prea mare. Maxim 5MB.");
+                        e.target.value = null; // Clear input
+                        return;
+                      }
+
+                      const allowedTypes = [
+                        "application/pdf",
+                        "application/msword",
+                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                      ];
+                      if (!allowedTypes.includes(file.type)) {
+                        // Invalid file type
+                        alert("Tipul de fisier nu este acceptat.");
+                        e.target.value = null; // Clear input
+                        return;
+                      }
+
                       const fileReader = new FileReader();
                       fileReader.onloadend = () => {
                         const base64String = (
@@ -195,8 +229,10 @@ const Job = ({ menuItems, job, jobCategories }) => {
                 Aplică
               </button>
             </div>
-            {loading && <p>Loading...</p>}
-            {error && <p>Error: {error.message}</p>}
+            <p className="mt-4">
+              {loading && <p>Se incarca...</p>}
+              {message && <p>{message}</p>}
+            </p>
           </form>
         </div>
       </div>
