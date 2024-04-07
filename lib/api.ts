@@ -110,7 +110,7 @@ export async function getAllJobCategories() {
 export async function getAllJobs() {
   const data = await fetchAPI(`
     query GET_JOBS{
-      jobs {
+      jobs(first:100) {
         nodes {
           jobFields {
             description

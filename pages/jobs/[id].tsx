@@ -33,7 +33,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
       $lastName: String!
       $email: String!
       $phone: String!
-      $resume: ResumeInput!
+      $resume: ResumeInput
     ) {
       submitJobApplication(
         input: {
@@ -50,6 +50,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
         email
         phone
         resume
+        message
       }
     }
   `;
@@ -181,7 +182,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
 
             <div className="mb-4">
               <ReCAPTCHA
-                sitekey="6LcR9XQpAAAAAIDIfJ36ZbGhHme95gzVIPwzbHvZ"
+                sitekey="6LcR9XQpAAAAABNE7vKVD55roY4gsQVLjzuuK8aG"
                 onChange={setRecaptchaValue}
               />
             </div>
