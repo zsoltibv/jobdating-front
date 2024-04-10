@@ -104,3 +104,31 @@
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
 }
+
+.container {
+  @apply mx-auto px-4;
+}
+
+@media (min-width: 641px) {
+  .container {
+    @apply max-w-[640px];
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    @apply max-w-[640px];
+  }
+}
+
+@media (min-width: 1025px) {
+  .container {
+    @apply max-w-[1200px];
+  }
+}
+
+@media (min-width: 1800px) {
+  .container {
+    @apply max-w-[1600px];
+  }
+}
