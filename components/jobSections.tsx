@@ -74,7 +74,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
   );
 
   return (
-    <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 font-open-sans pb-8">
+    <div className="jobs-container container w-full mx-auto px-4 font-open-sans pb-8">
       {/* Job Search Grid */}
       <div className="py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <input

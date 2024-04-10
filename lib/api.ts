@@ -27,6 +27,61 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   return json.data;
 }
 
+export async function getJobsByCategory(categories) {
+  const data = await fetchAPI(
+    `
+    query GET_JOBS_BY_CATEGORY($categories: [String]) {
+      jobs(
+        where: {
+          taxQuery: {
+            relation: OR,
+            taxArray: [
+              {
+                terms: $categories,
+                taxonomy: JOBCATEGORY,
+                operator: IN,
+                field: SLUG
+              },
+            ]
+          }
+        }
+      ){
+        edges{
+          cursor
+          node{
+            id
+            date
+            jobFields {
+                description
+                name
+              }
+              jobCategories {
+                nodes {
+                  name
+                }
+              }
+              locations {
+                nodes {
+                  name
+                }
+              }
+              workTypes {
+                nodes {
+                  name
+                }
+              }
+          }
+        }
+      }
+    }
+    `,
+    {
+      variables: { categories },
+    }
+  );
+  return data.jobs.edges.map((edge) => edge.node);
+}
+
 export async function getJobById(id) {
   const data = await fetchAPI(
     `

@@ -25,7 +25,7 @@ export default function JobHeroSection({ image, job }) {
       </div>
       <div className="absolute inset-0 bg-zinc-700 bg-opacity-80 z-0"></div>
       <div className="absolute inset-0 z-10 flex justify-center items-center">
-        <div className="max-w-[1640px] w-full mx-auto text-left px-4 pt-6">
+        <div className="container w-full mx-auto text-left px-4 pt-6">
           <h1 className="text-white font-open-sans md:text-5xl text-3xl font-regular md:mb-4 mb-2">
             {job.jobFields.name}
           </h1>

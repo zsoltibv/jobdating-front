@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import MenuHeader from "../../components/menuHeader";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -26,6 +26,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
     type: string;
   }>(null);
   const [recaptcha, setRecaptchaValue] = useState("");
+  const recaptchaRef = useRef(null);
 
   const ADD_JOB_APPLICATION = gql`
     mutation MyMutation(
@@ -35,6 +36,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
       $email: String!
       $phone: String!
       $resume: ResumeInput
+      $recaptcha: String!
     ) {
       submitJobApplication(
         input: {
@@ -44,6 +46,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
           email: $email
           phone: $phone
           resume: $resume
+          recaptcha: $recaptcha
         }
       ) {
         firstName
@@ -69,6 +72,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
         email: email,
         phone: phone,
         resume: resume,
+        recaptcha: recaptcha,
       },
       errorPolicy: "all",
     });
@@ -77,6 +81,13 @@ const Job = ({ menuItems, job, jobCategories }) => {
       setMessage(result.data.submitJobApplication?.errors[0]);
     } else {
       setMessage(result.data.submitJobApplication?.message);
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setResume(null);
+      setRecaptchaValue("");
+      recaptchaRef.current.reset();
     }
   };
 
@@ -95,7 +106,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
     <div style={{ height: "100vh" }}>
       <MenuHeader menuItems={menuItems} />
       <JobHeroSection image={image} job={job}></JobHeroSection>
-      <div className="jobs-container max-w-[1640px] w-full mx-auto px-4 pb-8">
+      <div className="jobs-container container w-full mx-auto px-4 pb-6">
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">Descriere</h1>
         <div className="flex font-medium font-inter text-gray-500">
           <div
@@ -216,8 +227,9 @@ const Job = ({ menuItems, job, jobCategories }) => {
 
             <div className="mb-4">
               <ReCAPTCHA
-                sitekey="6LcR9XQpAAAAABNE7vKVD55roY4gsQVLjzuuK8aG"
-                onChange={setRecaptchaValue}
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={(value) => setRecaptchaValue(value)}
               />
             </div>
 
@@ -237,7 +249,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
         </div>
       </div>
       <SimilarJobsSection
-        jobCategory={currentJobCategories}
+        jobCategories={currentJobCategories}
       ></SimilarJobsSection>
       <FooterSection
         menuItems={menuItems}

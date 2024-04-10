@@ -11,7 +11,7 @@ const MenuHeader = ({ menuItems }) => {
   };
 
   return (
-    <header className="max-w-[1640px] w-full mx-auto bg-opacity-75 p-4 absolute top-0 left-0 right-0 z-30 font-inter font-regular text-sm">
+    <header className="container w-full mx-auto bg-opacity-75 p-4 absolute top-0 left-0 right-0 z-30 font-inter font-regular text-sm">
       <nav className="flex justify-between items-center">
         <div>
           <Link href="/">
