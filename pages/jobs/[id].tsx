@@ -106,10 +106,10 @@ const Job = ({ menuItems, job, jobCategories }) => {
   }
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "fit-content" }} className="bg-gray-100">
       <MenuHeader menuItems={menuItems} />
       <JobHeroSection image={image} job={job}></JobHeroSection>
-      <div className="jobs-container container w-full mx-auto px-4 pb-6">
+      <div className="jobs-container container w-full mx-auto px-4 pb-6 ">
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">Descriere</h1>
         <div className="flex font-medium font-inter text-gray-500">
           <div
