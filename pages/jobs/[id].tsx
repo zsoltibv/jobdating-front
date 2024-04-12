@@ -31,6 +31,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
   const ADD_JOB_APPLICATION = gql`
     mutation MyMutation(
       $jobId: ID!
+      $jobName: String!
       $firstName: String!
       $lastName: String!
       $email: String!
@@ -41,6 +42,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
       submitJobApplication(
         input: {
           jobId: $jobId
+          jobName: $jobName
           firstName: $firstName
           lastName: $lastName
           email: $email
@@ -67,6 +69,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
     const result = await addJobApplicationCF({
       variables: {
         jobId: job.id,
+        jobName: job.jobFields.name,
         firstName: firstName,
         lastName: lastName,
         email: email,
