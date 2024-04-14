@@ -94,8 +94,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
     }
   };
 
-  const image =
-    "http://api.jobdating.ro/wp-content/uploads/2024/04/jobSectionBg-scaled.jpg";
+  const image = "/img/job-header.webp";
 
   const currentJobCategories = job.jobCategories.nodes.map(
     (category) => category.name

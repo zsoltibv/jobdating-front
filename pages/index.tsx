@@ -19,12 +19,12 @@ const Index = ({
   jobWorkTypes,
 }) => {
   const imageUrls = [
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/1-scaled.jpg",
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/2-scaled.jpg",
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/3.jpg",
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/4-scaled.jpg",
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/5-scaled.jpg",
-    "http://api.jobdating.ro/wp-content/uploads/2024/03/6.jpg",
+    "/img/slider-1.webp",
+    "/img/slider-2.webp",
+    "/img/slider-3.webp",
+    "/img/slider-4.webp",
+    "/img/slider-5.webp",
+    "/img/slider-6.webp",
   ];
 
   return (

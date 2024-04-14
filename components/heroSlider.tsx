@@ -56,7 +56,7 @@ const HeroSlider = ({ images }) => {
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-zinc-700 bg-opacity-80 z-10"></div>
+      <div className="absolute inset-0 bg-zinc-700 bg-opacity-65 z-10"></div>
       <div className="absolute inset-0 z-20 flex justify-center items-center">
         <div className="container w-full mx-auto text-left px-4">
           <h1 className="text-white font-open-sans md:text-5xl text-3xl font-regular mb-4">
