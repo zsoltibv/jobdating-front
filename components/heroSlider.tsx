@@ -73,9 +73,11 @@ const HeroSlider = ({ images }) => {
                 Înscrie-te acum
               </button>
             </Link>
-            <button className="bg-transparent text-white border border-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-              Trimite o cerere
-            </button>
+            <Link href="/cerere-de-oferta">
+              <button className="bg-transparent text-white border border-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+                Trimite o cerere
+              </button>
+            </Link>
           </div>
         </div>
       </div>
