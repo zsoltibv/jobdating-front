@@ -13,7 +13,7 @@ export default function PageHeroSection({ image, page }) {
             <h1 className="text-white font-open-sans md:text-5xl text-3xl font-regular md:mb-4 mb-2">
               {page.title}
             </h1>
-            <p className="text-gray-300 font-medium font-inter md:text-xl text-base">
+            <p className="text-gray-300 font-medium font-inter md:text-xl text-base md:flex hidden">
               {page.description}
             </p>
           </div>
