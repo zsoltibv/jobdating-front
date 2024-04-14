@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 const HeroSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,9 +68,11 @@ const HeroSlider = ({ images }) => {
             job cât mai curând posibil!
           </p>
           <div className="flex justify-start space-x-4 pt-16">
-            <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-              Înscrie-te acum
-            </button>
+            <Link href="/inregistrare">
+              <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+                Înscrie-te acum
+              </button>
+            </Link>
             <button className="bg-transparent text-white border border-white font-inter py-2 md:px-12 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
               Trimite o cerere
             </button>
