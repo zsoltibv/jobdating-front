@@ -74,9 +74,17 @@ const MenuHeader = ({ menuItems }) => {
                     onClick={() => toggleDropdown(item.id)}
                     className="text-black md:text-white uppercase flex items-center justify-between w-full px-4 py-2"
                   >
-                    {item.label}
+                    {item.children.length == 0 && (
+                      <Link href={item.url}>{item.label}</Link>
+                    )}
                     {item.children && item.children.length > 0 && (
-                      <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
+                      <div>
+                        <span>{item.label}</span>
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className="ml-2"
+                        />
+                      </div>
                     )}
                   </button>
                   {item.children && item.children.length > 0 && (
