@@ -20,7 +20,7 @@ const DespreNoi = ({ menuItems, jobCategories }) => {
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div
         className="despre-noi-container container w-full mx-auto px-4 pb-6"
-        style={{ height: "70vh" }}
+        style={{ minHeight: "70vh" }}
       >
         <div className="flex font-medium font-inter text-gray-500 py-16">
           Obiectivul nostru principal este de a aduce plus valoare în companiile

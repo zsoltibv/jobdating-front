@@ -29,11 +29,70 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
     type: string;
   }>(null);
   const [recaptcha, setRecaptchaValue] = useState("");
+  const [message, setMessage] = useState("");
   const recaptchaRef = useRef(null);
 
-  function addCandidateSubmission() {
-    throw new Error("Function not implemented.");
-  }
+  const ADD_CANDIDATE_SUBMISSION = gql`
+    mutation MyMutation(
+      $firstName: String!
+      $lastName: String!
+      $email: String!
+      $phoneNumber: String!
+      $city: String!
+      $workFromDistance: Boolean!
+      $socialMediaLink: String!
+      $workType: [String!]!
+      $resume: ResumeInput
+      $recaptcha: String!
+    ) {
+      sendCandidateSubmissionCF(
+        input: {
+          firstName: $firstName
+          lastName: $lastName
+          email: $email
+          phoneNumber: $phoneNumber
+          city: $city
+          workFromDistance: $workFromDistance
+          socialMediaLink: $socialMediaLink
+          workType: $workType
+          resume: $resume
+          recaptcha: $recaptcha
+        }
+      ) {
+        message
+        errors
+      }
+    }
+  `;
+
+  const [addCandidateSubmissionCF, { data, loading, error }] = useMutation(
+    ADD_CANDIDATE_SUBMISSION
+  );
+
+  const addCandidateSubmission = async () => {
+    const result = await addCandidateSubmissionCF({
+      variables: {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phone,
+        city: city,
+        workFromDistance: workFromDistance,
+        socialMediaLink: socialMediaLink,
+        workType: workTypes,
+        resume: resume,
+        recaptcha: recaptcha,
+      },
+      errorPolicy: "all",
+    });
+
+    if (result.data.sendCandidateSubmissionCF?.errors) {
+      setMessage(result.data.sendCandidateSubmissionCF?.errors[0]);
+    } else {
+      setMessage(result.data.sendCandidateSubmissionCF?.message);
+      recaptchaRef.current.reset();
+    }
+  };
 
   const handleWorkTypeChange = (event) => {
     const { value, checked } = event.target;
@@ -265,10 +324,10 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
                 Aplică
               </button>
             </div>
-            {/* <p className="mt-4">
+            <p className="mt-4">
               {loading && <p>Se incarca...</p>}
               {message && <p>{message}</p>}
-            </p> */}
+            </p>
           </form>
         </div>
       </div>
