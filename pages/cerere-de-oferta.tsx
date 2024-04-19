@@ -95,7 +95,7 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
@@ -105,7 +105,7 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
               e.preventDefault();
               addRecruiterSubmission();
             }}
-            className="grid grid-cols-1 gap-6 w-full"
+            className="grid grid-cols-1 w-full"
           >
             <div className="grid md:grid-cols-2 gap-4">
               <div className="md:mb-4">

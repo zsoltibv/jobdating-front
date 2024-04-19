@@ -106,7 +106,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">

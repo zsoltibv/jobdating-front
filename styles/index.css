@@ -132,3 +132,9 @@
     @apply max-w-[1600px];
   }
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+  @apply border-cyan-600;
+}
