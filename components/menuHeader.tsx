@@ -91,13 +91,13 @@ const MenuHeader = ({ menuItems }) => {
                     <ul
                       className={`${
                         openDropdownId === item.id ? "flex" : "hidden"
-                      } flex-col md:absolute md:left-1/2 md:-translate-x-1/2 md:top-full bg-gray-100 shadow-md w-full md:w-auto rounded md:rounded-none`}
+                      } flex-col md:absolute md:left-1/2 md:-translate-x-1/2 md:top-full bg-gray-100 shadow-md w-full md:w-auto rounded`}
                     >
                       {item.children.map((child) => (
                         <li key={child.id} className="whitespace-nowrap">
                           <Link
                             href={child.url}
-                            className="text-black block px-4 py-2 hover:bg-gray-200"
+                            className="text-black block px-4 py-2 hover:bg-gray-200 rounded"
                           >
                             {child.label}
                           </Link>
