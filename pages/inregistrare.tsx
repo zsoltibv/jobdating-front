@@ -193,7 +193,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
                   htmlFor="workFromDistance"
                   className="text-gray-600 mr-2"
                 >
-                  Munca la distanta*
+                  Munca la distanta
                 </label>
                 <input
                   type="checkbox"
@@ -207,7 +207,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
               {/* Social Media Link Input */}
               <div className="md:mb-4">
                 <label htmlFor="socialMediaLink" className="text-gray-600">
-                  Link Linkedin/Facebook*
+                  Link Linkedin/Facebook
                 </label>
                 <input
                   type="url"
@@ -220,7 +220,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
 
               <div className="md:mb-4">
                 <label className="text-gray-600">
-                  Ce fel de loc de munca cauti*
+                  Ce fel de loc de munca cauti
                 </label>
                 <div className="flex flex-col mt-2">
                   {/* Munca Necalificata */}
@@ -266,7 +266,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
 
               <div className="mb-4">
                 <label htmlFor="resume" className="text-gray-600 block mb-3">
-                  Incarca CV
+                  Incarca CV (docx, doc, pdf)
                 </label>
                 <input
                   type="file"

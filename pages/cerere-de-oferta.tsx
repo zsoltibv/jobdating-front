@@ -42,8 +42,8 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
       $phoneNumber: String!
       $jobName: String!
       $dateOfStart: String!
-      $nrOfPersonnelNeeded: Int!
-      $jobDescription: String!
+      $nrOfPersonnelNeeded: Int
+      $jobDescription: String
     ) {
       sendRecruiterSubmissionCF(
         input: {
@@ -86,8 +86,10 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
       errorPolicy: "all",
     });
 
-    if (result.data.sendRecruiterSubmissionCF?.errors) {
-      setMessage(result.data.sendRecruiterSubmissionCF?.errors[0]);
+    console.log(result);
+
+    if (result?.data.sendRecruiterSubmissionCF?.errors) {
+      setMessage(result?.data.sendRecruiterSubmissionCF?.errors[0]);
     } else {
       setMessage(result.data.sendRecruiterSubmissionCF?.message);
       recaptchaRef.current.reset();
@@ -219,7 +221,7 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
 
               <div className="md:mb-4">
                 <label htmlFor="jobDescription" className="text-gray-600">
-                  Descriere Post*
+                  Descriere Post
                 </label>
                 <textarea
                   name="jobDescription"
@@ -235,7 +237,7 @@ const CerereDeOferta = ({ menuItems, jobCategories }) => {
                   htmlFor="numberOfPersonnelNeeded"
                   className="text-gray-600"
                 >
-                  Nr necesar personal*
+                  Nr necesar personal
                 </label>
                 <input
                   type="number"
