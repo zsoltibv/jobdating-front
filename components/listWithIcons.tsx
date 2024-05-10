@@ -3,10 +3,10 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const ListWithIcons = ({ items }) => {
   return (
-    <div className="bg-gray-100 p-4">
+    <div className="p-4">
       <ul>
         {items.map((item, index) => (
-          <li key={index} className="flex items-start mb-4">
+          <li key={index} className="flex items-start mb-6">
             <FontAwesomeIcon
               icon={faChevronRight}
               className="text-cyan-400 mt-1 mr-2"

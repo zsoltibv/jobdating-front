@@ -22,24 +22,33 @@ const DespreNoi = ({ menuItems, jobCategories }) => {
         className="despre-noi-container container w-full mx-auto px-4 pb-6"
         style={{ minHeight: "70vh" }}
       >
-        <div className="flex font-medium font-inter text-gray-500 py-16">
-          Obiectivul nostru principal este de a aduce plus valoare în companiile
-          clienților noștri și în același timp de a încadra candidații aflați în
-          căutarea unui loc de muncă, pe posturi ce li se potrivesc cel mai
-          bine. Prin echipa noastra de specialisiti cu experienta de peste 20 de
-          ani pe piata fortei de munca, oferim servicii de cea mai înaltă
-          calitate și o varietate de soluții care acoperă întreg ciclul de
-          management a resurselor umane, precum leasing personal (muncă
-          temporară), recrutare și selecție forță de muncă, administrare
-          personal și consultanță in domeniul legislatiei muncii. Dispunem de o
-          baza de date diversificata la nivel national, asigurand necesarul de
-          personal adaptat nevoilor dvs. intr-un timp cat mai scurt. Oferim, de
-          asemenea, garantie pentru serviciul nostru. Totodata ne adresăm
-          persoanelor aflate în căutarea unui loc de munca, oferind posturi atât
-          în tara, cât și în străinătate. în următoarele sectoare de activitate
-          : construcții civile și industriale , industria auto, industria
-          hotelieră, domeniul medical, logistica, gradinarit-peisagistica,
-          comerț .
+        <div className="block md:flex gap-6 items-center justify-between py-8">
+          <div className="flex font-medium font-inter text-gray-500 py-16 md:w-2/3 leading-loose">
+            Obiectivul nostru principal este de a aduce plus valoare în
+            companiile clienților noștri și în același timp de a încadra
+            candidații aflați în căutarea unui loc de muncă, pe posturi ce li se
+            potrivesc cel mai bine. Prin echipa noastra de specialisiti cu
+            experienta de peste 20 de ani pe piata fortei de munca, oferim
+            servicii de cea mai înaltă calitate și o varietate de soluții care
+            acoperă întreg ciclul de management a resurselor umane, precum
+            leasing personal (muncă temporară), recrutare și selecție forță de
+            muncă, administrare personal și consultanță in domeniul legislatiei
+            muncii. Dispunem de o baza de date diversificata la nivel national,
+            asigurand necesarul de personal adaptat nevoilor dvs. intr-un timp
+            cat mai scurt. Oferim, de asemenea, garantie pentru serviciul
+            nostru. Totodata ne adresăm persoanelor aflate în căutarea unui loc
+            de munca, oferind posturi atât în tara, cât și în străinătate. în
+            următoarele sectoare de activitate : construcții civile și
+            industriale , industria auto, industria hotelieră, domeniul medical,
+            logistica, gradinarit-peisagistica, comerț .
+          </div>
+          <div className="md:w-1/3 w-full">
+            <img
+              src="/img/different-occupations.webp"
+              alt=""
+              className="max-h-[600px]"
+            />
+          </div>
         </div>
       </div>
       <FooterSection

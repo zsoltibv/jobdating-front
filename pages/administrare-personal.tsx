@@ -27,21 +27,26 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
           <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
             De ce să lucrati cu noi pentru administrarea pesonalului?
           </h1>
-          <ListWithIcons
-            items={[
-              {
-                description: "Reduceti costurile cu personalul HR",
-              },
-              {
-                description:
-                  "Economisiti sumele investite in cursurile de calificare și specializare a personalului HR",
-              },
-              {
-                description:
-                  "Se evit erori privind aplicarea prevederilor legale,  avand la dispozitie o echipă cu experiență vastă în domeniu",
-              },
-            ]}
-          />
+          <div className="block md:flex gap-6 items-center justify-between">
+            <ListWithIcons
+              items={[
+                {
+                  description: "Reduceti costurile cu personalul HR",
+                },
+                {
+                  description:
+                    "Economisiti sumele investite in cursurile de calificare și specializare a personalului HR",
+                },
+                {
+                  description:
+                    "Se evit erori privind aplicarea prevederilor legale,  avand la dispozitie o echipă cu experiență vastă în domeniu",
+                },
+              ]}
+            />
+            <div className="image-container">
+              <img src="/img/admin-personal.png" alt="" className="min-h-96" />
+            </div>
+          </div>
           <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
             Activitatile pe care vi le punem la dispoziție:
           </h1>

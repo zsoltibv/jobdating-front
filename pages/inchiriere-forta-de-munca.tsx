@@ -49,29 +49,36 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
           Pentru asigurarea necesarului de personal privind:
         </h1>
-        <ListWithIcons
-          items={[
-            {
-              description:
-                "Înlocuirea unor angajaţi aflaţi în absenţă indelungată (concedii maternitate, concedii medicale, etc.)",
-            },
-            {
-              description:
-                "Edităm și plasăm anunțurile de angajare pe propriul nostru pagina de web și pe principalele portaluri de locuri de muncă, easemena folosim campanii în rețelele sociale și comunicăm în mod regulat cu potențialii noștri candidați și grupuri de social media",
-            },
-            {
-              description:
-                "Prestarea unor activitati specializate sau ocazionale (promotii, evenimente, targuri si expozitii, translatori, etc.)",
-            },
-            {
-              description:
-                "Perioade de vârf ale sezonului, cum ar fi perioada dinaintea sărbătorilor",
-            },
-            {
-              description: "Locuri de munca imediate sau neasteptate",
-            },
-          ]}
-        />
+        <div className="block md:flex gap-6 items-center justify-between">
+          <div className="md:w-1/2 w-full">
+            <ListWithIcons
+              items={[
+                {
+                  description:
+                    "Înlocuirea unor angajaţi aflaţi în absenţă indelungată (concedii maternitate, concedii medicale, etc.)",
+                },
+                {
+                  description:
+                    "Edităm și plasăm anunțurile de angajare pe propriul nostru pagina de web și pe principalele portaluri de locuri de muncă, easemena folosim campanii în rețelele sociale și comunicăm în mod regulat cu potențialii noștri candidați și grupuri de social media",
+                },
+                {
+                  description:
+                    "Prestarea unor activitati specializate sau ocazionale (promotii, evenimente, targuri si expozitii, translatori, etc.)",
+                },
+                {
+                  description:
+                    "Perioade de vârf ale sezonului, cum ar fi perioada dinaintea sărbătorilor",
+                },
+                {
+                  description: "Locuri de munca imediate sau neasteptate",
+                },
+              ]}
+            />
+          </div>
+          <div className="image-container md:w-1/2 w-full">
+            <img src="/img/munca-temporara.png" alt="" className="min-h-96" />
+          </div>
+        </div>
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
           Procesul nostru:
         </h1>
