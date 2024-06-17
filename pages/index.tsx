@@ -14,6 +14,11 @@ import InfoSection from "../components/infoSection";
 import ServiceSection from "../components/serviceSection";
 import ServicesSection from "../components/serviceSection";
 import ServiceImageSection from "../components/serviceImageSection";
+import CerereDeOfertaFormular from "../components/cerereDeOfertaFormular";
+import JobSectionGrid from "../components/jobSectionGrid";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Index = ({
   menuItems,
@@ -31,12 +36,41 @@ const Index = ({
       <ServiceSection></ServiceSection>
       <InfoSection></InfoSection>
       <ServiceImageSection></ServiceImageSection>
-      {/* <JobSection
-        jobs={jobs}
-        jobCategories={jobCategories}
-        jobLocations={jobLocations}
-        jobWorkTypes={jobWorkTypes}
-      /> */}
+      <div className="container flex justify-center">
+        <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-24 md:py-14 p-6">
+          <h2 className="text-lg uppercase font-bold text-white mb-8">
+            Căutați să angajați?
+            <hr className="md:mb-12 md:mt-3 m-0" />
+          </h2>
+
+          <div className="bg-gray-100 max-w-5xl rounded-lg">
+            <CerereDeOfertaFormular></CerereDeOfertaFormular>
+          </div>
+        </div>
+      </div>
+      <div className="container font-inter uppercase cyna-400 font-medium py-12">
+        <div className="flex items-center pb-6">
+          <div>
+            <h2 className="text-lg md:text-md uppercase text-cyan-900 font-bold tracking-wider p-4">
+              Ultimele Job-uri
+            </h2>
+          </div>
+          <Link href="/jobs">
+            <button className="bg-zinc-300 hover:bg-zinc-200 text-gray-900 font-medium font-inter py-1.5 md:px-6 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="text-cyan-900 mr-3"
+              />
+              Vezi toate job-urile
+            </button>
+          </Link>
+        </div>
+        <JobSectionGrid
+          jobCategories={jobCategories}
+          jobLocations={jobLocations}
+          jobWorkTypes={jobWorkTypes}
+        />
+      </div>
       <FooterSection
         menuItems={menuItems}
         jobCategories={jobCategories}

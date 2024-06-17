@@ -195,6 +195,39 @@ export async function getAllJobs() {
   return data.jobs.nodes;
 }
 
+export async function getLatestJobs(jobCount) {
+  const data = await fetchAPI(`
+    query GET_JOBS {
+      jobs(last: ${jobCount}) {
+        nodes {
+          jobFields {
+            description
+            name
+          }
+          jobCategories {
+            nodes {
+              name
+            }
+          }
+          locations {
+            nodes {
+              name
+            }
+          }
+          workTypes {
+            nodes {
+              name
+            }
+          }
+          id
+          date
+        }
+      }
+    }
+  `);
+  return data.jobs.nodes;
+}
+
 export async function getMenuItemsByMenuName() {
   const data = await fetchAPI(
     `
