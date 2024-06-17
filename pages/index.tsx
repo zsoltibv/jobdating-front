@@ -7,9 +7,13 @@ import {
   getAllJobs,
   getMenuItemsByMenuName,
 } from "../lib/api";
-import HeroSlider from "../components/heroSlider";
 import JobSection from "../components/jobSections";
 import FooterSection from "../components/footerSection";
+import HeroSection from "../components/heroSection";
+import InfoSection from "../components/infoSection";
+import ServiceSection from "../components/serviceSection";
+import ServicesSection from "../components/serviceSection";
+import ServiceImageSection from "../components/serviceImageSection";
 
 const Index = ({
   menuItems,
@@ -18,25 +22,21 @@ const Index = ({
   jobLocations,
   jobWorkTypes,
 }) => {
-  const imageUrls = [
-    "/img/slider-1.webp",
-    "/img/slider-2.webp",
-    "/img/slider-3.webp",
-    "/img/slider-4.webp",
-    "/img/slider-5.webp",
-    "/img/slider-6.webp",
-  ];
+  const image = "/img/job-header.webp";
 
   return (
     <div style={{ minHeight: "100vh" }} className="bg-gray-100">
       <MenuHeader menuItems={menuItems} />
-      <HeroSlider images={imageUrls} />
-      <JobSection
+      <HeroSection image={image} />
+      <ServiceSection></ServiceSection>
+      <InfoSection></InfoSection>
+      <ServiceImageSection></ServiceImageSection>
+      {/* <JobSection
         jobs={jobs}
         jobCategories={jobCategories}
         jobLocations={jobLocations}
         jobWorkTypes={jobWorkTypes}
-      />
+      /> */}
       <FooterSection
         menuItems={menuItems}
         jobCategories={jobCategories}

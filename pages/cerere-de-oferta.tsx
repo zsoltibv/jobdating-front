@@ -12,7 +12,7 @@ import { fi } from "date-fns/locale";
 const CerereDeOferta = ({ menuItems, jobCategories }) => {
   const image = "/img/job-header.webp";
   const page = {
-    title: "Cerere de ofertă",
+    title: "Găsește următorul tău angajat",
     description:
       "Completează formularul de mai jos și unul dintre colegii noștri te va contacta pentru a discuta despre nevoile tale de personal.",
   };

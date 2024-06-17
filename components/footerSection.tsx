@@ -5,7 +5,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
   // Assuming `jobCategories` is passed as a prop similar to `menuItems`
 
   return (
-    <footer className="bg-neutral-600 text-white font-inter">
+    <footer className="bg-gray-600 text-white font-inter">
       <div className="container px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:py-24 py-14">
         {/* Column 1: Logo, Street, Tel, and Mail */}
         <div className="flex flex-col gap-1">
