@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import ReCAPTCHA from "react-google-recaptcha";
+import ConsentText from "./consentText";
 
 const CerereDeOfertaFormular = () => {
   const [firstName, setFirstName] = useState("");
@@ -241,10 +242,11 @@ const CerereDeOfertaFormular = () => {
               />
             </div>
           </div>
+          <ConsentText></ConsentText>
           <div>
             <button
               type="submit"
-              className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
+              className="w-full md:w-fit px-8 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none mt-8"
             >
               Trimite cererea
             </button>

@@ -30,7 +30,7 @@ const HeroSection = ({ image }) => {
                     Găsește următorul tău angajat
                   </button>
                 </Link>
-                <Link href="/inregistrare">
+                <Link href="/jobs">
                   <button className="bg-cyan-900 hover:bg-cyan-800 text-white font-inter py-3 md:px-6 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
                     Cauți job?
                   </button>

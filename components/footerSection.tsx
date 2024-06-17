@@ -58,13 +58,10 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           </h2>
           <ul className="flex flex-col gap-1">
             <li>
-              <Link href="/termeni-si-conditii">
-                <p className="hover:text-gray-300">Termeni și Condiții</p>
-              </Link>
-            </li>
-            <li>
-              <Link href="/politica-de-privatitate">
-                <p className="hover:text-gray-300">Politica de Privatitate</p>
+              <Link href="/politica-de-confidentialitate">
+                <p className="hover:text-gray-300">
+                  Politica de Confidențialitate
+                </p>
               </Link>
             </li>
           </ul>

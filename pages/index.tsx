@@ -37,9 +37,9 @@ const Index = ({
       <InfoSection></InfoSection>
       <ServiceImageSection></ServiceImageSection>
       <div className="container flex justify-center">
-        <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-24 md:py-14 p-6">
+        <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-32 md:py-14 p-6">
           <h2 className="text-lg uppercase font-bold text-white mb-8">
-            Căutați să angajați?
+            Cauți să angajezi?
             <hr className="md:mb-12 md:mt-3 m-0" />
           </h2>
 
@@ -48,7 +48,7 @@ const Index = ({
           </div>
         </div>
       </div>
-      <div className="container font-inter uppercase cyna-400 font-medium py-12">
+      <div className="container font-inter uppercase cyan-400 font-medium py-12">
         <div className="flex items-center pb-6">
           <div>
             <h2 className="text-lg md:text-md uppercase text-cyan-900 font-bold tracking-wider p-4">

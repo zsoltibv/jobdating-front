@@ -1,11 +1,32 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
 import { useState } from "react";
-import { getAllJobs, getMenuItemsByMenuName } from "../lib/api";
+import {
+  getAllJobCategories,
+  getAllJobLocations,
+  getAllJobWorkTypes,
+  getAllJobs,
+  getMenuItemsByMenuName,
+} from "../lib/api";
 import { gql, useMutation } from "@apollo/client";
 import Link from "next/link";
+import JobSection from "../components/jobSections";
+import PageHeroSection from "../components/pageHeroSections";
+import FooterSection from "../components/footerSection";
 
-const Jobs = ({ menuItems, jobs }) => {
+const image = "/img/job-header.webp";
+const page = {
+  title: "Locuri de muncă",
+  description: "Alege din job-urile noastre și aplică ușor.",
+};
+
+const Jobs = ({
+  menuItems,
+  jobs,
+  jobCategories,
+  jobLocations,
+  jobWorkTypes,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredJobs = jobs.filter((job) =>
@@ -13,44 +34,19 @@ const Jobs = ({ menuItems, jobs }) => {
   );
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "fit-content" }} className="bg-gray-100">
       <MenuHeader menuItems={menuItems} />
-      <div className="jobs-container p-8 mx-auto">
-        <h1 className="text-3xl mb-6">Job Listings</h1>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Search Jobs"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="p-2 border border-gray-300 rounded"
-          />
-        </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
-          {filteredJobs.map((job) => (
-            <Link key={job.id} href={`/jobs/${job.id}`}>
-              <div key={job.id} className="bg-gray-200 p-4">
-                <h2 className="text-xl font-bold">{job.jobFields.name}</h2>
-                <p>{job.jobFields.description}</p>
-                <div className="mt-2">
-                  <strong>Locations:</strong>{" "}
-                  {job.locations.nodes.map((obj) => obj.name).join(", ")}
-                </div>
-                <div className="mt-2">
-                  <strong>Work Types:</strong>{" "}
-                  {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
-                </div>
-                <div className="mt-2">
-                  <strong>Categories:</strong>{" "}
-                  {job.jobCategories.nodes
-                    .map((category) => category.name)
-                    .join(", ")}
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
+      <PageHeroSection image={image} page={page}></PageHeroSection>
+      <JobSection
+        jobs={filteredJobs}
+        jobCategories={jobCategories}
+        jobLocations={jobLocations}
+        jobWorkTypes={jobWorkTypes}
+      />
+      <FooterSection
+        menuItems={menuItems}
+        jobCategories={jobCategories}
+      ></FooterSection>
     </div>
   );
 };
@@ -60,9 +56,18 @@ export default Jobs;
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const allMenuItems = await getMenuItemsByMenuName();
   const allJobs = await getAllJobs();
+  const allJobCategories = await getAllJobCategories();
+  const allJobLocations = await getAllJobLocations();
+  const allJobWorkTypes = await getAllJobWorkTypes();
 
   return {
-    props: { menuItems: allMenuItems, jobs: allJobs },
+    props: {
+      menuItems: allMenuItems,
+      jobs: allJobs,
+      jobCategories: allJobCategories,
+      jobLocations: allJobLocations,
+      jobWorkTypes: allJobWorkTypes,
+    },
     revalidate: 10,
   };
 };

@@ -169,14 +169,11 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
                   <div className="mt-2 md:block hidden">
                     {job.workTypes.nodes.map((obj) => obj.name).join(", ")}
                   </div>
-                  <div className="mt-2 md:block hidden">
-                    {timeSince(job.date)}
-                  </div>
                 </div>
               </div>
             </div>
           </Link>
-        ))}
+        ))} 
       </div>
 
       {/* Pagination Controls */}

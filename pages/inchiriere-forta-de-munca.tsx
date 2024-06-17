@@ -1,10 +1,7 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
-import { useState } from "react";
 import { getAllJobCategories, getMenuItemsByMenuName } from "../lib/api";
-import { gql, useMutation } from "@apollo/client";
 import PageHeroSection from "../components/pageHeroSections";
-import { title } from "process";
 import FooterSection from "../components/footerSection";
 import ListWithIcons from "../components/listWithIcons";
 import StepIndicator from "../components/stepIndicator";
@@ -24,26 +21,39 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-        <div className="flex font-medium font-inter text-gray-500 py-16">
-          Leasingul de personal este o solutie flexibilă și eficientă pentru a
-          acoperi nevoia de personal în perioade de vârf ale activității sau
-          pentru înlocuirea temporară a unor angajați. Numit oficial muncă
-          temporară acesta reprezintă activitatea prin care o companie de
-          resurse umane pune la dispoziția unei firme , personalul , de care
-          aceasta din urmă are nevoie pentru o anumită perioadă. Personalul care
-          funcționează pe acest principiu nu este angajat direct al companiei
-          pentru care presteaza servicii, ci al Agentului de munca temporara. Ce
-          reprezintă un Agent de munca temporara ? Agentul de munca temporară
-          este o companie, autorizată de Ministerul Muncii, care pune la
-          dispoziţie Utilizatorului personal calificat sau necalificat pe care
-          îl angajeazăşi salarizează în acest scop. Care este modalitatea de
-          derulare a relaţiilor de muncă? Raportul juridic de muncă temporară
-          este un raport "triunghiular" implicând, cu drepturi şi obligaţii,
-          trei părţi: Salariatul Temporar, Utilizatorul şi Agentul de munca
-          temporara. Avem de-a face cu alăturarea a două contracte: contractul
-          individual de muncă dintre agentul de muncă temporară şi salariatul
-          temporar şi contractul de punere la dispoziţie dintre agentul de munca
-          temporară şi utilizator.
+        <div className="flex flex-col font-medium font-inter text-gray-500 py-16 space-y-4">
+          <p>
+            <strong>Leasingul de personal</strong> este o solutie flexibilă și
+            eficientă pentru a acoperi nevoia de personal în perioade de vârf
+            ale activității sau pentru înlocuirea temporară a unor angajați.
+            Numit oficial muncă temporară, acesta reprezintă activitatea prin
+            care o companie de resurse umane pune la dispoziția unei firme
+            personalul de care aceasta din urmă are nevoie pentru o anumită
+            perioadă. Personalul care funcționează pe acest principiu nu este
+            angajat direct al companiei pentru care prestează servicii, ci al
+            Agentului de muncă temporară.
+          </p>
+          <h2 className="font-medium">
+            Ce reprezintă un Agent de muncă temporară?
+          </h2>
+          <p>
+            Agentul de muncă temporară este o companie, autorizată de Ministerul
+            Muncii, care pune la dispoziție Utilizatorului personal calificat
+            sau necalificat pe care îl angajează și salarizează în acest scop.
+          </p>
+          <h2 className="font-medium">
+            Care este modalitatea de derulare a relațiilor de muncă?
+          </h2>
+          <p>
+            Raportul juridic de muncă temporară este un raport "triunghiular"
+            implicând, cu drepturi și obligații, trei părți:{" "}
+            <strong>Salariatul Temporar</strong>, <strong>Utilizatorul</strong>{" "}
+            și <strong>Agentul de muncă temporară</strong>. Avem de-a face cu
+            alăturarea a două contracte: contractul individual de muncă dintre
+            agentul de muncă temporară și salariatul temporar și contractul de
+            punere la dispoziție dintre agentul de muncă temporară și
+            utilizator.
+          </p>
         </div>
         <hr />
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
@@ -84,7 +94,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
         </h1>
         <p className="md:mb-24 mb-0">
           Serviciile de munca temporara asigura rapiditatea punerii la
-          dispozitie de personal necesar, pentru a avea „omul potrivit la
+          dispoziție de personal necesar, pentru a avea „omul potrivit la
           momentul potrivit“.
         </p>
         <StepIndicator
@@ -101,7 +111,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
         />
         <hr className="md:mt-36 mt-12" />
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
-          Avantajele inchirierii fortei de munca:
+          Avantajele închirierii forței de muncă:
         </h1>
         <div className="space-y-8">
           <ListWithIcons
@@ -111,7 +121,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
               },
               {
                 description:
-                  "Forța de muncă este deja calificată și pregatită pentru postul solicitat",
+                  "Forța de muncă este deja calificată și pregătită pentru postul solicitat",
               },
               {
                 description:
@@ -119,7 +129,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
               },
               {
                 description:
-                  "Ofera solutii rapide, flexibile si eficiente in perioadele de varf, cand au loc cresteri punctuale ale activitatii, in cazuri unor evenimente sau in perioadele sezoniere",
+                  "Oferă soluții rapide, flexibile și eficiente în perioadele de vârf, când au loc creșteri punctuale ale activității, în cazuri unor evenimente sau în perioadele sezoniere",
               },
               {
                 description:

@@ -7,6 +7,7 @@ import PageHeroSection from "../components/pageHeroSections";
 import { title } from "process";
 import FooterSection from "../components/footerSection";
 import ReCAPTCHA from "react-google-recaptcha";
+import ConsentText from "../components/consentText";
 
 const Inregistrare = ({ menuItems, jobCategories }) => {
   const image = "/img/job-header.webp";
@@ -316,10 +317,11 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
               />
             </div>
 
+            <ConsentText></ConsentText>
             <div>
               <button
                 type="submit"
-                className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
+                className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none mt-5"
               >
                 Aplică
               </button>

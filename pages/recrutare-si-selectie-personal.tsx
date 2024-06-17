@@ -1,10 +1,7 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
-import { useState } from "react";
 import { getAllJobCategories, getMenuItemsByMenuName } from "../lib/api";
-import { gql, useMutation } from "@apollo/client";
 import PageHeroSection from "../components/pageHeroSections";
-import { title } from "process";
 import FooterSection from "../components/footerSection";
 import StepIndicator from "../components/stepIndicator";
 import ListWithIcons from "../components/listWithIcons";
@@ -24,30 +21,41 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-        <div className="flex font-medium font-inter text-gray-500 py-16">
-          Scopul nostru este să vă găsim candidat motivat, care nu are doar
-          competențele necesare, ci a cărui personalitate se încadrează perfect
-          în colectivul dumneavoastră. Candidati care vor aduce valoare adaugata
-          companiei . Oferim, de asemenea, garanție pentru serviciul nostru. Ce
-          fel de avantaje asigura recrutarea de personal? Posibilități multiple
-          de selecție Baza de date complexă și variată Economie de timp și
-          costuri aferente acestui proces Va propunem candidati de la top
-          management pana la entry level, de la productie pana la domeniul
-          medical, oferim solutii pentru proiecte care acopera domenii in
-          construcții , industria auto, industria hotelieră, agricultură,
-          comerț, etc., atat in tara , cat si strainatate.
+        <div className="flex flex-col font-medium font-inter text-gray-500 py-16 space-y-4">
+          <p>
+            Scopul nostru este să vă găsim candidati motivati, care nu au doar
+            competențele necesare, ci ale căror personalitate se încadrează
+            perfect în colectivul dumneavoastră, candidati care vor aduce plus
+            valoare companiei. Oferim, de asemenea, garanție pentru serviciul
+            nostru.
+          </p>
+          <h2 className="font-medium">
+            Ce fel de avantaje asigură recrutarea de personal?
+          </h2>
+          <ul className="list-disc ml-5 space-y-1">
+            <li>Posibilități multiple de selecție</li>
+            <li>Baza de date complexă și variată</li>
+            <li>Economie de timp și costuri aferente acestui proces</li>
+          </ul>
+          <p>
+            Vă propunem candidați de la top management până la entry level, de
+            la producție până la domeniul medical, oferim soluții pentru
+            proiecte atât în țară, cât și în străinătate, care acoperă domenii
+            în construcții, industria auto, industria hotelieră, agricultură,
+            comerț, etc.
+          </p>
         </div>
         <StepIndicator
           steps={[
-            "Anunt de angajare",
-            "Selectia aplicatorilor primite",
+            "Anunț de angajare",
+            "Selecția aplicatorilor primite",
             "Consultare baza de date",
-            "Pre selectie conform cerintelor clientului",
-            "Pregatirea candidatilor pentru interviul de angajare",
-            "Prezentarea candidatilor catre Client",
+            "Preselecție conform cerințelor clientului",
+            "Pregătirea candidaților pentru interviul de angajare",
+            "Prezentarea candidaților către Client",
           ]}
         />
-        <hr className="md:mt-40" />
+        <hr className="md:mt-40 mt-12" />
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
           Metode folosite:
         </h1>
@@ -57,22 +65,22 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
               {
                 title: "Consultare baza de date:",
                 description:
-                  "Baza noastră de date conține datele actualizate a aproape 10.000 de candidați la nivel național și precum acces și la bazele de date ale principalelor portaluri de locuri de muncă.",
+                  "Baza noastră de date conține datele actualizate a aproape 10.000 de candidați la nivel național și acces la bazele de date ale principalelor portaluri de locuri de muncă.",
               },
               {
                 title: "Online:",
                 description:
-                  "Edităm și plasăm anunțurile de angajare pe propriul nostru pagina de web și pe principalele portaluri de locuri de muncă, easemena folosim campanii în rețelele sociale și comunicăm în mod regulat cu potențialii noștri candidați și grupuri de social media",
+                  "Edităm și plasăm anunțurile de angajare pe propria noastră pagină de web și pe principalele portaluri de locuri de muncă, folosim campanii în rețelele sociale și comunicăm în mod regulat cu potențialii noștri candidați și grupuri de social media.",
               },
               {
                 title: "Offline:",
                 description:
-                  "Participăm la târguri / burse de locuri de muncă, evenimente de HR.",
+                  "Participăm la târguri/burse de locuri de muncă, evenimente de HR.",
               },
               {
                 title: "Căutare directă:",
                 description:
-                  "Căutarea de potențiali candidați în domeniile specifice",
+                  "Căutarea de potențiali candidați în domeniile specifice.",
               },
             ]}
           />
