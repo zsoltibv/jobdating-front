@@ -38,9 +38,15 @@ const Index = ({
       <ServiceImageSection></ServiceImageSection>
       <div className="container flex justify-center">
         <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-32 md:py-14 p-6">
-          <h2 className="text-lg uppercase font-bold text-white mb-8">
-            Cauți să angajezi?
-            <hr className="md:mb-12 md:mt-3 m-0" />
+          <h2 className="text-lg font-bold text-white mb-8">
+            <p className="uppercase">Cauți să angajezi?</p>
+            <hr className="md:mb-4 md:mt-3 m-0" />
+            <p className="flex">
+              Cauți un job? Te rugăm
+              <Link href="/inregistrare" className="ml-1">
+                <span className="text-white underline"> trimite CV-ul.</span>
+              </Link>
+            </p>
           </h2>
 
           <div className="bg-gray-100 max-w-5xl rounded-lg">

@@ -23,7 +23,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
 
         {/* Column 2: Menu Items */}
         <div>
-          <h2 className="font-bold mb-4 font-open-sans text-2xl">Menu</h2>
+          <h2 className="font-bold mb-4 font-open-sans text-2xl">Meniu</h2>
           <ul className="flex flex-col gap-1">
             {menuItems.map((item) => (
               <li key={item.id}>
@@ -38,12 +38,12 @@ const FooterSection = ({ menuItems, jobCategories }) => {
         {/* Column 3: Job Categories */}
         <div>
           <h2 className="font-bold mb-4 font-open-sans text-2xl">
-            Job Categories
+            Locuri de muncă
           </h2>
           <ul className="flex flex-col gap-1">
-            {jobCategories.map((category, index) => (
+            {jobCategories.slice(0, 10).map((category, index) => (
               <li key={index}>
-                <Link href={`/jobs/${category.slug}`}>
+                <Link href={`/jobs/category/${category.name}`}>
                   <p className="hover:text-gray-300">{category.name}</p>
                 </Link>
               </li>

@@ -13,6 +13,8 @@ import Link from "next/link";
 import JobSection from "../components/jobSections";
 import PageHeroSection from "../components/pageHeroSections";
 import FooterSection from "../components/footerSection";
+import CallToActionBanner from "../components/callToActionBanner";
+import router from "next/router";
 
 const image = "/img/job-header.webp";
 const page = {
@@ -43,6 +45,14 @@ const Jobs = ({
         jobLocations={jobLocations}
         jobWorkTypes={jobWorkTypes}
       />
+      <div className="container py-6">
+        <CallToActionBanner
+          title="Nu găsești ceea ce cauți?"
+          subtitle="Trimite solicitarea, iar colegii noștri vă vor contacta în cel mai scurt timp!"
+          buttonText="Înregistrare"
+          onButtonClick={() => router.push("/inregistrare")}
+        />
+      </div>
       <FooterSection
         menuItems={menuItems}
         jobCategories={jobCategories}
