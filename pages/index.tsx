@@ -68,7 +68,7 @@ const Index = ({
                 icon={faArrowRight}
                 className="text-cyan-900 mr-3"
               />
-              Vezi toate job-urile
+              Vezi toate
             </button>
           </Link>
         </div>

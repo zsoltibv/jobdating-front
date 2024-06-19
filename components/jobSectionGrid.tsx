@@ -51,7 +51,7 @@ const JobSectionGrid = ({ jobCategories, jobLocations, jobWorkTypes }) => {
                 <h2 className="font-semibold md:text-xl text-lg py-6 text-gray-800">
                   {job.jobFields.name}
                 </h2>
-                <p className="text-cyan-400 font-semibold text-sm md:text-base">
+                <p className="text-cyan-400 font-semibold text-sm md:text-base md:flex hidden">
                   VEZI JOB
                 </p>
               </div>
