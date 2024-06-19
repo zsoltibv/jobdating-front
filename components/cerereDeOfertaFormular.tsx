@@ -85,14 +85,14 @@ const CerereDeOfertaFormular = () => {
 
   return (
     <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-      <div className="flex font-medium font-inter text-gray-500 py-16">
+      <div className="font-medium font-inter text-gray-500 py-16 w-full">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             addRecruiterSubmission();
           }}
         >
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-4 w-full">
             <div className="md:mb-4">
               <label htmlFor="firstName" className="text-gray-600">
                 Nume*
