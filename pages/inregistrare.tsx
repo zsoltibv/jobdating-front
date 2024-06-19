@@ -309,7 +309,7 @@ const Inregistrare = ({ menuItems, jobCategories }) => {
               </div>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 recaptcha-container">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}

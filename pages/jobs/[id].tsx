@@ -13,6 +13,7 @@ import JobHeroSection from "../../components/jobHeroSection";
 import FooterSection from "../../components/footerSection";
 import SimilarJobsSection from "../../components/similarJobsSection";
 import { useRouter } from "next/router";
+import ConsentText from "../../components/consentText";
 
 const Job = ({ menuItems, job, jobCategories }) => {
   const router = useRouter();
@@ -117,8 +118,8 @@ const Job = ({ menuItems, job, jobCategories }) => {
         </div>
 
         <div className="apply mt-6 font-open-sans">
-          <div className="flex justify-left">
-            <div className="bg-cyan-400 w-full rounded-lg md:px-20 md:py-14 p-6">
+          <div className="justify-left">
+            <div className="bg-cyan-400 rounded-lg md:px-20 md:py-14 p-4">
               <h2 className="text-lg uppercase font-bold text-white mb-8">
                 Aplică pentru acest job
                 <hr className="md:mb-12 md:mt-3 m-0" />
@@ -130,7 +131,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
                     addJobApplication();
                   }}
                 >
-                  <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4">
                     <div className="md:mb-4">
                       <label htmlFor="firstName" className="text-gray-600">
                         Nume*
@@ -238,18 +239,18 @@ const Job = ({ menuItems, job, jobCategories }) => {
                     </div>
                   </div>
 
-                  <div className="mb-4">
+                  <div className="recaptcha-container mb-4 w-full">
                     <ReCAPTCHA
                       ref={recaptchaRef}
                       sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                       onChange={(value) => setRecaptchaValue(value)}
                     />
                   </div>
-
+                  <ConsentText></ConsentText>
                   <div>
                     <button
                       type="submit"
-                      className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none"
+                      className="w-full md:w-fit px-24 rounded py-2 text-white bg-cyan-400 hover:bg-cyan-600 focus:outline-none mt-4"
                     >
                       Aplică
                     </button>

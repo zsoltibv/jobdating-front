@@ -37,7 +37,7 @@ const Index = ({
       <InfoSection></InfoSection>
       <ServiceImageSection></ServiceImageSection>
       <div className="container flex justify-center">
-        <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-32 md:py-14 p-6">
+        <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-32 md:py-14 p-4">
           <h2 className="text-lg font-bold text-white mb-8">
             <p className="uppercase">Cauți să angajezi?</p>
             <hr className="md:mb-4 md:mt-3 m-0" />

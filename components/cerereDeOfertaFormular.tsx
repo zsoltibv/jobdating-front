@@ -91,7 +91,6 @@ const CerereDeOfertaFormular = () => {
             e.preventDefault();
             addRecruiterSubmission();
           }}
-          className="grid grid-cols-1 w-full"
         >
           <div className="grid md:grid-cols-2 gap-4">
             <div className="md:mb-4">
@@ -234,7 +233,7 @@ const CerereDeOfertaFormular = () => {
               />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 recaptcha-container">
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}

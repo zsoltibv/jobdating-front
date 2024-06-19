@@ -138,3 +138,10 @@ textarea:focus,
 select:focus {
   @apply border-cyan-600;
 }
+
+.recaptcha-container {
+  @media screen and (max-width: 640px) {
+    transform: scale(0.77);
+    transform-origin: 0 0;
+  }
+}
