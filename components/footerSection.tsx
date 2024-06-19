@@ -71,7 +71,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
       <hr className="border-gray-400" />
 
       {/* Copyright Notice */}
-      <p className="text-center py-3 md:text-lg text-md">
+      <p className="text-center py-3">
         Copyright © {new Date().getFullYear()} jobdating.ro. Toate drepturile
         rezervate.
       </p>
