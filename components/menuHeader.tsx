@@ -60,12 +60,12 @@ const MenuHeader = ({ menuItems }) => {
         <div
           className={`${
             isMenuOpen ? "pb-4" : "pb-0"
-          } transition-all duration-300 ease-in-out mt-2`}
+          } transition-all duration-300 ease-in-out mt-2 bg-gray-100 md:bg-transparent`}
         >
           <ul
             className={`${
               isMenuOpen ? "flex" : "hidden"
-            } md:flex flex-col md:flex-row md:relative bg-white md:bg-transparent w-full md:w-auto space-y-2 md:space-y-0 md:space-x-4 text-center z-50`}
+            } md:flex flex-col md:flex-row md:relative bg-gray-100 md:bg-transparent w-full md:w-auto space-y-2 md:space-y-0 md:space-x-4 text-center z-50`}
           >
             {organizedMenuItems.map((item) => (
               <Fragment key={item.id}>
@@ -91,7 +91,7 @@ const MenuHeader = ({ menuItems }) => {
                     <ul
                       className={`${
                         openDropdownId === item.id ? "flex" : "hidden"
-                      } flex-col md:absolute md:left-1/2 md:-translate-x-1/2 md:top-full bg-gray-100 shadow-md w-full md:w-auto rounded`}
+                      } flex-col md:absolute md:right-0 md:top-full md:bg-gray-200 bg-gray-200 shadow-md w-full md:w-auto rounded`}
                     >
                       {item.children.map((child) => (
                         <li key={child.id} className="whitespace-nowrap">

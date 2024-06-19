@@ -238,7 +238,7 @@ export async function getMenuItemsByMenuName() {
         databaseId
         name
         slug
-        menuItems {
+        menuItems(first: 50) {
           nodes {
             id
             databaseId

@@ -56,7 +56,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
           ]}
         />
         <hr className="md:mt-40 mt-12" />
-        <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+        <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
           Metode folosite:
         </h1>
         <div className="space-y-8">

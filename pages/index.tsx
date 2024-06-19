@@ -28,6 +28,7 @@ const Index = ({
   jobWorkTypes,
 }) => {
   const image = "/img/job-header.webp";
+  console.log(menuItems);
 
   return (
     <div style={{ minHeight: "100vh" }} className="bg-gray-100">

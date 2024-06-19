@@ -24,7 +24,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
         <div className="font-medium font-inter py-16">
-          <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+          <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
             De ce să lucrati cu noi pentru administrarea pesonalului?
           </h1>
           <div className="block md:flex gap-6 items-center justify-between">
@@ -44,10 +44,14 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
               ]}
             />
             <div className="image-container">
-              <img src="/img/admin-personal.png" alt="" className="min-h-96" />
+              <img
+                src="/img/admin-personal.png"
+                alt=""
+                className="min-h-96 rounded-md"
+              />
             </div>
           </div>
-          <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+          <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
             Activitatile pe care vi le punem la dispoziție:
           </h1>
           <div className="space-y-8">

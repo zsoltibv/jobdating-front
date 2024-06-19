@@ -56,7 +56,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
           </p>
         </div>
         <hr />
-        <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+        <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
           Pentru asigurarea necesarului de personal privind:
         </h1>
         <div className="block md:flex gap-6 items-center justify-between">
@@ -86,10 +86,14 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
             />
           </div>
           <div className="image-container md:w-1/2 w-full">
-            <img src="/img/munca-temporara.png" alt="" className="min-h-96" />
+            <img
+              src="/img/munca-temporara.png"
+              alt=""
+              className="min-h-96 rounded-md"
+            />
           </div>
         </div>
-        <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+        <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
           Procesul nostru:
         </h1>
         <p className="md:mb-24 mb-0">
@@ -110,7 +114,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
           ]}
         />
         <hr className="md:mt-36 mt-12" />
-        <h1 className="md:text-3xl text-2xl my-6 font-open-sans">
+        <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
           Avantajele închirierii forței de muncă:
         </h1>
         <div className="space-y-8">
