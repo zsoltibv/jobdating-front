@@ -19,6 +19,7 @@ import JobSectionGrid from "../components/jobSectionGrid";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import InregistrareFormular from "../components/inregistrareFormular";
 
 const Index = ({
   menuItems,
@@ -40,18 +41,16 @@ const Index = ({
       <div className="container flex justify-center">
         <div className="bg-cyan-400 max-w-5xl rounded-lg  md:px-32 md:py-14 p-4">
           <h2 className="text-lg font-bold text-white mb-8">
-            <p className="uppercase">Cauți să angajezi?</p>
+            <p className="uppercase">Ești în căutarea unui loc de muncă?</p>
             <hr className="md:mb-4 md:mt-3 m-0" />
             <p className="flex">
-              Cauți un job? Te rugăm
-              <Link href="/inregistrare" className="ml-1">
-                <span className="text-white underline"> trimite CV-ul.</span>
-              </Link>
+              Te rugăm să ne trimiți datele tale și echipa noastră te va
+              contacta în cel mai scurt timp.
             </p>
           </h2>
 
           <div className="bg-gray-100 max-w-5xl rounded-lg">
-            <CerereDeOfertaFormular></CerereDeOfertaFormular>
+            <InregistrareFormular></InregistrareFormular>
           </div>
         </div>
       </div>

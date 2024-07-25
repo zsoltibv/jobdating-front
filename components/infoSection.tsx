@@ -7,8 +7,8 @@ const InfoSection = () => {
       <div className="container w-full mx-auto px-4 flex justify-center">
         <div className="ml-10 max-w-3xl">
           <h1 className="text-zinc-800 font-open-sans md:text-4.5xl text-3xl font-medium mb-4 md:mb-12">
-            Suntem o firmă globală de recrutare și consultanță în<br></br>
-            căutarea talentului.
+            Suntem o companie de resurse umane cu o vastă experiență atât pe
+            piața locală cât și cea din UE.
           </h1>
           <p className="text-zinc-800 font-inter font-light md:text-xl text-md">
             Prin echipa noastra de specialisiti cu experienta de peste 20 de ani

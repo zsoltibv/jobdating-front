@@ -146,8 +146,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
           />
           <CallToActionBanner
             title="Apelaţi cu încredere la forţă de muncă temporară!"
-            subtitle="Noi ne ocupăm de toate formalităţile, de calitatea lor, de angajaţi!
-            EI vor desfăşura activitatea solicitată de Dumneavoastră pe intreaga durată a contractului!"
+            subtitle="Noi ne ocupăm de toate formalitățile și de gestionarea angajaților. Aceștia vor desfășura activitatea solicitată de dumneavoastră pe întreaga durată a contractului."
             buttonText="Solicită"
             onButtonClick={() => router.push("/cerere-de-oferta")}
           />

@@ -9,7 +9,6 @@ const DespreNoi = ({ menuItems, jobCategories }) => {
   const image = "/img/job-header.webp";
   const page = {
     title: "Despre Noi",
-    description: "Afla mai multe despre noi",
   };
 
   const sliderImages = [

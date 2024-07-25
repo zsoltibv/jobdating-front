@@ -1,13 +1,8 @@
 import { GetStaticProps } from "next";
 import MenuHeader from "../components/menuHeader";
-import { useRef, useState } from "react";
 import { getAllJobCategories, getMenuItemsByMenuName } from "../lib/api";
-import { gql, useMutation } from "@apollo/client";
 import PageHeroSection from "../components/pageHeroSections";
-import { title } from "process";
 import FooterSection from "../components/footerSection";
-import ReCAPTCHA from "react-google-recaptcha";
-import { fi } from "date-fns/locale";
 import CerereDeOfertaFormular from "../components/cerereDeOfertaFormular";
 
 const CerereDeOferta = ({ menuItems, jobCategories }) => {

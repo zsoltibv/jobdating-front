@@ -18,21 +18,21 @@ const HeroSection = ({ image }) => {
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-cyan-400"></div>
             <div className="ml-10">
               <h1 className="text-white font-open-sans md:text-6xl text-3xl font-regular mb-4 md:mb-12">
-                Întâlneşte-ți locul tău de muncă!
+                Get the perfect match !
               </h1>
               <p className="text-white font-inter font-light md:text-xl text-md max-w-md">
                 Înregistrează-te în baza noastră de date pentru a întâlni noul
-                tău job cât mai curând posibil!
+                loc de muncă !
               </p>
               <div className="flex flex-col justify-start gap-4 pt-16">
                 <Link href="/cerere-de-oferta">
                   <button className="bg-cyan-400 hover:bg-cyan-300 text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-                    Găsește următorul tău angajat
+                    Întâlnește-ți angajatul
                   </button>
                 </Link>
                 <Link href="/jobs">
                   <button className="bg-cyan-900 hover:bg-cyan-800 text-white font-inter py-3 md:px-6 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-                    Cauți job?
+                    Întâlnește-ți jobul
                   </button>
                 </Link>
               </div>

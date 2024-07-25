@@ -18,7 +18,7 @@ import router from "next/router";
 
 const image = "/img/job-header.webp";
 const page = {
-  title: "Locuri de muncă",
+  title: "Date your job !",
   description: "Alege din job-urile noastre și aplică ușor.",
 };
 
@@ -48,7 +48,7 @@ const Jobs = ({
       <div className="container py-6">
         <CallToActionBanner
           title="Nu găsești ceea ce cauți?"
-          subtitle="Trimite solicitarea, iar colegii noștri vă vor contacta în cel mai scurt timp!"
+          subtitle="Trimite-ne solicitarea ta, iar colegii noștri te vor contacta în cel mai scurt timp."
           buttonText="Înregistrare"
           onButtonClick={() => router.push("/inregistrare")}
         />
