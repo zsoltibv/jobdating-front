@@ -304,7 +304,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const jobCategories = await getAllJobCategories();
 
   return {
-    props: { menuItems: allMenuItems, job, jobCategories },
-    revalidate: 10,
+    props: {
+      job: job || {},
+      menuItems: allMenuItems || [],
+      jobCategories: jobCategories || [],
+    },
+    revalidate: 1,
   };
 };
