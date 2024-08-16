@@ -11,7 +11,7 @@ const services = [
     buttonLink: "/inchiriere-forta-de-munca",
   },
   {
-    image: "/img/pixuri.png", // replace with the correct path to your image
+    image: "/img/recrutare-personal.png", // replace with the correct path to your image
     title: "Recrutare și selecție personal",
     text: "Scopul nostru este să vă găsim candidat motivat, care nu are doar competențele necesare, ci a cărui personalitate se încadrează perfect în colectivul dumneavoastră. Candidati care vor aduce valoare adaugata companiei . Oferim, de asemenea, garanție pentru serviciul nostru.",
     buttonLink: "/recrutare-si-selectie-personal",
