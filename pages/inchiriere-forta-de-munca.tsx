@@ -69,10 +69,6 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
                 },
                 {
                   description:
-                    "Edităm și plasăm anunțurile de angajare pe propriul nostru pagina de web și pe principalele portaluri de locuri de muncă, easemena folosim campanii în rețelele sociale și comunicăm în mod regulat cu potențialii noștri candidați și grupuri de social media",
-                },
-                {
-                  description:
                     "Prestarea unor activitati specializate sau ocazionale (promotii, evenimente, targuri si expozitii, translatori, etc.)",
                 },
                 {

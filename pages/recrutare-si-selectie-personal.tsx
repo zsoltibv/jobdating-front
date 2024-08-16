@@ -48,7 +48,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
         <StepIndicator
           steps={[
             "Anunț de angajare",
-            "Selecția aplicatorilor primite",
+            "Selecția aplicațiilor primite",
             "Consultare baza de date",
             "Preselecție conform cerințelor clientului",
             "Pregătirea candidaților pentru interviul de angajare",

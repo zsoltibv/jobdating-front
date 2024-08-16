@@ -52,7 +52,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
             </div>
           </div>
           <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
-            Activitatile pe care vi le punem la dispoziție:
+            Serviciile pe care vi le punem la dispoziție:
           </h1>
           <div className="space-y-8">
             <ListWithIcons
