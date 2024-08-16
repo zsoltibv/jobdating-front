@@ -123,7 +123,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
 
         <div className="apply mt-6 font-open-sans">
           <div className="justify-left">
-            <div className="bg-cyan-400 rounded-lg md:px-8 md:py-10 p-4">
+            <div className="bg-cyan-400 rounded-lg md:px-14 md:py-12 p-4">
               <h2 className="text-lg uppercase font-bold text-white mb-8">
                 Aplică pentru acest job
                 <hr className="md:mb-12 md:mt-3 m-0" />
