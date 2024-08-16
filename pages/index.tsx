@@ -28,7 +28,7 @@ const Index = ({
   jobLocations,
   jobWorkTypes,
 }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   console.log(menuItems);
 
   return (
