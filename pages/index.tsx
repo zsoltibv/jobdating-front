@@ -49,7 +49,7 @@ const Index = ({
             </p>
           </h2>
 
-          <div className="bg-gray-100 max-w-5xl rounded-lg">
+          <div className="bg-gray-100 rounded-lg">
             <InregistrareFormular></InregistrareFormular>
           </div>
         </div>

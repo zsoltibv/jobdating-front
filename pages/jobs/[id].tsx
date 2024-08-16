@@ -113,13 +113,17 @@ const Job = ({ menuItems, job, jobCategories }) => {
         <h1 className="md:text-3xl text-2xl my-6 font-open-sans">Descriere</h1>
         <div className="flex font-medium font-inter text-gray-500">
           <div
-            dangerouslySetInnerHTML={{ __html: job.jobFields.description }}
+            dangerouslySetInnerHTML={{
+              __html: job.jobFields.description
+                ? job.jobFields.description.replace(/&nbsp;/g, "<br/>")
+                : "", // Provide a fallback if description is null
+            }}
           />
         </div>
 
         <div className="apply mt-6 font-open-sans">
           <div className="justify-left">
-            <div className="bg-cyan-400 rounded-lg md:px-20 md:py-14 p-4">
+            <div className="bg-cyan-400 rounded-lg md:px-8 md:py-10 p-4">
               <h2 className="text-lg uppercase font-bold text-white mb-8">
                 Aplică pentru acest job
                 <hr className="md:mb-12 md:mt-3 m-0" />

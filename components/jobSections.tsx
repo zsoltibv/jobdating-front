@@ -144,7 +144,10 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
       <div className="grid gap-4 font-open-sans">
         {filteredJobs.map((job) => (
           <Link key={job.id} href={`/jobs/${job.id}`}>
-            <div key={job.id} className="bg-white border px-8 rounded-md">
+            <div
+              key={job.id}
+              className="bg-white border px-8 rounded-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
+            >
               <div className="flex justify-between items-center">
                 <h2 className="font-semibold md:text-2xl text-xl py-6 text-gray-800">
                   {job.jobFields.name}
