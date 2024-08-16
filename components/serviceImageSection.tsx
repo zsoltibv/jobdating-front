@@ -40,7 +40,7 @@ const ServiceImageSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNextClick();
-    }, 3000); // Change slide every 5 seconds
+    }, 6000); // Change slide every 5 seconds
     return () => clearInterval(interval); // Cleanup the interval on component unmount
   }, []);
 
