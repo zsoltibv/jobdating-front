@@ -13,7 +13,7 @@ const JobSectionGrid = ({ jobCategories, jobLocations, jobWorkTypes }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      const latestJobs = await getLatestJobs(9);
+      const latestJobs = await getLatestJobs(10);
       setJobs(latestJobs);
     };
     fetchJobs();
