@@ -202,7 +202,7 @@ const CerereDeOfertaFormular = () => {
 
             <div className="md:mb-4">
               <label className="text-gray-600">
-                Ce fel de loc de munca cauti
+                Ce fel de loc de muncă te interesează?
               </label>
               <div className="flex flex-col mt-2">
                 {/* Munca Necalificata */}
@@ -215,7 +215,7 @@ const CerereDeOfertaFormular = () => {
                     checked={workTypes.includes("Munca Necalificata")}
                     className="form-checkbox"
                   />
-                  <span className="ml-2">Munca Necalificata</span>
+                  <span className="ml-2">Necalificată</span>
                 </label>
 
                 {/* Munca Calificata */}
@@ -228,7 +228,7 @@ const CerereDeOfertaFormular = () => {
                     checked={workTypes.includes("Munca Calificata")}
                     className="form-checkbox"
                   />
-                  <span className="ml-2">Munca Calificata</span>
+                  <span className="ml-2">Calificată</span>
                 </label>
 
                 {/* Studii Superioare */}
@@ -241,7 +241,7 @@ const CerereDeOfertaFormular = () => {
                     checked={workTypes.includes("Studii Superioare")}
                     className="form-checkbox"
                   />
-                  <span className="ml-2">Studii Superioare</span>
+                  <span className="ml-2">Care necesită studii superioare</span>
                 </label>
               </div>
             </div>

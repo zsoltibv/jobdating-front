@@ -44,8 +44,8 @@ const Index = ({
             <p className="uppercase">Ești în căutarea unui loc de muncă?</p>
             <hr className="md:mb-4 md:mt-3 m-0" />
             <p className="flex">
-              Te rugăm să ne trimiți datele tale și echipa noastră te va
-              contacta în cel mai scurt timp.
+              Te rugăm să ne trimiți datele și echipa noastră te va contacta în
+              cel mai scurt timp.
             </p>
           </h2>
 
