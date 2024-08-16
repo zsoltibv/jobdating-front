@@ -220,7 +220,7 @@ const CerereDeOfertaFormular = () => {
                 htmlFor="numberOfPersonnelNeeded"
                 className="text-gray-600"
               >
-                Nr necesar personal
+                Număr persoane solicitate
               </label>
               <input
                 type="number"
