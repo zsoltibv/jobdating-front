@@ -102,13 +102,14 @@ const CerereDeOfertaFormular = () => {
             addCandidateSubmission();
           }}
         >
-          <div className="grid md:grid-cols-2 gap-4 mb-4">
-            <div className="md:mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="mb-4">
               <label htmlFor="firstName" className="text-gray-600">
                 Nume*
               </label>
               <input
                 type="text"
+                id="firstName"
                 name="firstName"
                 className="w-full py-2 px-4 border border-gray-300 rounded focus:outline-none mt-2"
                 value={firstName}
