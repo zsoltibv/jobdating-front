@@ -26,7 +26,7 @@ const InfoSection = () => {
             </Link>
             <Link href="/cerere-de-oferta">
               <button className="bg-cyan-400 hover:bg-cyan-600 text-white font-inter py-3 md:px-6 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
-                Angajează
+                Solicită personal
               </button>
             </Link>
           </div>

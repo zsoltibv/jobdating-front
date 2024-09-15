@@ -23,7 +23,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
         <div className="flex flex-col font-medium font-inter text-gray-500 py-16 space-y-4">
           <p>
-            <strong>Leasingul de personal</strong> este o solutie flexibilă și
+            <strong>Munca temporară</strong> este o solutie flexibilă și
             eficientă pentru a acoperi nevoia de personal în perioade de vârf
             ale activității sau pentru înlocuirea temporară a unor angajați.
             Numit oficial muncă temporară, acesta reprezintă activitatea prin

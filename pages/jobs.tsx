@@ -19,7 +19,7 @@ import router from "next/router";
 const image = "/img/main-page-bg.jpg";
 const page = {
   title: "Date your job !",
-  description: "Alege din job-urile noastre și aplică ușor.",
+  description: "Alege din job-urile noastre și aplică rapid.",
 };
 
 const Jobs = ({

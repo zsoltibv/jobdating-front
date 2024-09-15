@@ -21,30 +21,40 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-        <div className="flex flex-col font-medium font-inter text-gray-500 py-16 space-y-4">
-          <p>
-            Scopul nostru este să vă găsim candidati motivati, care nu au doar
-            competențele necesare, ci ale căror personalitate se încadrează
-            perfect în colectivul dumneavoastră, candidati care vor aduce plus
-            valoare companiei. Oferim, de asemenea, garanție pentru serviciul
-            nostru.
-          </p>
-          <h2 className="font-medium">
-            Ce fel de avantaje asigură recrutarea de personal?
-          </h2>
-          <ul className="list-disc ml-5 space-y-1">
-            <li>Posibilități multiple de selecție</li>
-            <li>Baza de date complexă și variată</li>
-            <li>Economie de timp și costuri aferente acestui proces</li>
-          </ul>
-          <p>
-            Vă propunem candidați de la top management până la entry level, de
-            la producție până la domeniul medical, oferim soluții pentru
-            proiecte atât în țară, cât și în străinătate, care acoperă domenii
-            în construcții, industria auto, industria hotelieră, agricultură,
-            comerț, etc.
-          </p>
+        <div className="flex flex-col items-center md:flex-row gap-6 items-start justify-between py-16">
+          <div className="flex flex-col font-medium font-inter text-gray-500 space-y-4 md:w-1/2">
+            <p>
+              Scopul nostru este să vă găsim candidați motivați, care nu au doar
+              competențele necesare, ci ale căror personalitate se încadrează
+              perfect în colectivul dumneavoastră, candidați care vor aduce plus
+              valoare companiei. Oferim, de asemenea, garanție pentru serviciul
+              nostru.
+            </p>
+            <h2 className="font-medium">
+              Ce fel de avantaje asigură recrutarea de personal?
+            </h2>
+            <ul className="list-disc ml-5 space-y-1">
+              <li>Posibilități multiple de selecție</li>
+              <li>Baza de date complexă și variată</li>
+              <li>Economie de timp și costuri aferente acestui proces</li>
+            </ul>
+            <p>
+              Vă propunem candidați de la top management până la entry level, de
+              la producție până la domeniul medical, oferim soluții pentru
+              proiecte atât în țară, cât și în străinătate, care acoperă domenii
+              în construcții, industria auto, industria hotelieră, agricultură,
+              comerț, etc.
+            </p>
+          </div>
+          <div className="image-container md:w-1/2">
+            <img
+              src="/img/recrutare-personal.png"
+              alt="Recruitment team"
+              className="min-h-96 rounded-md"
+            />
+          </div>
         </div>
+
         <StepIndicator
           steps={[
             "Anunț de angajare",
