@@ -6,6 +6,7 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const FooterSection = ({ menuItems, jobCategories }) => {
   return (
@@ -100,7 +101,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               aria-label="Facebook"
             >
               <FontAwesomeIcon
-                icon={faFacebook}
+                icon={faFacebook as IconProp}
                 size="2x"
                 className="hover:text-gray-300"
               />
@@ -112,7 +113,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               aria-label="Instagram"
             >
               <FontAwesomeIcon
-                icon={faInstagram}
+                icon={faInstagram as IconProp}
                 size="2x"
                 className="hover:text-gray-300"
               />
@@ -124,7 +125,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               aria-label="TikTok"
             >
               <FontAwesomeIcon
-                icon={faTiktok}
+                icon={faTiktok as IconProp}
                 size="2x"
                 className="hover:text-gray-300"
               />

@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router"; // Import useRouter for active link handling
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -10,6 +11,7 @@ import {
 const MenuHeader = ({ menuItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdownId, setOpenDropdownId] = useState(null);
+  const router = useRouter(); // Initialize useRouter for active link checking
   const organizedMenuItems = organizeMenuItems(menuItems);
 
   function organizeMenuItems(menuItems) {
@@ -72,10 +74,24 @@ const MenuHeader = ({ menuItems }) => {
                 <li className="group relative md:inline-block md:my-0 my-2">
                   <button
                     onClick={() => toggleDropdown(item.id)}
-                    className="text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 py-2"
+                    className={`${
+                      router.pathname === item.url
+                        ? "md:text-cyan-600 font-bold"
+                        : ""
+                    } text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 py-3`}
                   >
                     {item.children.length == 0 && (
-                      <Link href={item.url}>{item.label}</Link>
+                      <Link href={item.url}>
+                        <p
+                          className={`${
+                            router.pathname === item.url
+                              ? "md:text-cyan-600 font-bold"
+                              : "md:hover:text-cyan-600"
+                          }`}
+                        >
+                          {item.label}
+                        </p>
+                      </Link>
                     )}
                     {item.children && item.children.length > 0 && (
                       <div className="flex items-center">
@@ -97,7 +113,11 @@ const MenuHeader = ({ menuItems }) => {
                         <li key={child.id} className="whitespace-nowrap">
                           <Link
                             href={child.url}
-                            className="text-black block px-4 py-2 hover:bg-gray-300 rounded"
+                            className={`block px-4 py-3 ${
+                              router.pathname === child.url
+                                ? "md:text-cyan-600 font-bold"
+                                : "md:hover:text-cyan-600"
+                            } hover:bg-gray-300 rounded`}
                           >
                             {child.label}
                           </Link>
