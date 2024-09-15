@@ -75,10 +75,8 @@ const MenuHeader = ({ menuItems }) => {
                   <button
                     onClick={() => toggleDropdown(item.id)}
                     className={`${
-                      router.pathname === item.url
-                        ? "md:text-cyan-600 font-bold"
-                        : ""
-                    } text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 py-3`}
+                      router.pathname === item.url ? "text-black font-bold" : ""
+                    } text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 py-2`}
                   >
                     {item.children.length == 0 && (
                       <Link href={item.url}>
@@ -113,7 +111,7 @@ const MenuHeader = ({ menuItems }) => {
                         <li key={child.id} className="whitespace-nowrap">
                           <Link
                             href={child.url}
-                            className={`block px-4 py-3 ${
+                            className={`block px-4 py-2 ${
                               router.pathname === child.url
                                 ? "md:text-cyan-600 font-bold"
                                 : "md:hover:text-cyan-600"
