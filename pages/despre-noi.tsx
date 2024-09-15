@@ -6,7 +6,7 @@ import PageHeroSection from "../components/pageHeroSections";
 import FooterSection from "../components/footerSection";
 
 const DespreNoi = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Despre Noi",
   };

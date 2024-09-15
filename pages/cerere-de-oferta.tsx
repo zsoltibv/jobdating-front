@@ -6,7 +6,7 @@ import FooterSection from "../components/footerSection";
 import CerereDeOfertaFormular from "../components/cerereDeOfertaFormular";
 
 const CerereDeOferta = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Găsește următorul tău angajat",
     description:

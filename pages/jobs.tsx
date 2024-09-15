@@ -16,7 +16,7 @@ import FooterSection from "../components/footerSection";
 import CallToActionBanner from "../components/callToActionBanner";
 import router from "next/router";
 
-const image = "/img/job-header.webp";
+const image = "/img/main-page-bg.jpg";
 const page = {
   title: "Date your job !",
   description: "Alege din job-urile noastre și aplică ușor.",

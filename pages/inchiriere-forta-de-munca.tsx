@@ -9,7 +9,7 @@ import CallToActionBanner from "../components/callToActionBanner";
 import router from "next/router";
 
 const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Închiriere forţă de muncă - muncă temporară",
     description:

@@ -95,7 +95,7 @@ const Job = ({ menuItems, job, jobCategories }) => {
     }
   };
 
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
 
   const currentJobCategories = job.jobCategories.nodes.map(
     (category) => category.name

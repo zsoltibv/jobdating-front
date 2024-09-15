@@ -15,7 +15,7 @@ const JobsByCategory = ({ initialJobs, jobCategories, menuItems }) => {
   const router = useRouter();
   const { categorySlug } = router.query;
   const [jobs, setJobs] = useState(initialJobs);
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: categorySlug,
   };

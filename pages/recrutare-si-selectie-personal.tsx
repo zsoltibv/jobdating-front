@@ -9,7 +9,7 @@ import CallToActionBanner from "../components/callToActionBanner";
 import router from "next/router";
 
 const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Recrutare si selectie personal",
     description:

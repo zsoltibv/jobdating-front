@@ -5,7 +5,7 @@ import PageHeroSection from "../components/pageHeroSections";
 import FooterSection from "../components/footerSection";
 
 const PoliticaDeConfidentialitate = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Politica de confidențialitate",
   };

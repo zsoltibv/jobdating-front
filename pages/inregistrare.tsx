@@ -6,7 +6,7 @@ import FooterSection from "../components/footerSection";
 import InregistrareFormular from "../components/inregistrareFormular";
 
 const Inregistrare = ({ menuItems, jobCategories }) => {
-  const image = "/img/job-header.webp";
+  const image = "/img/main-page-bg.jpg";
   const page = {
     title: "Înregistrează-te în baza de date",
     description:
