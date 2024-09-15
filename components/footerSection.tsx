@@ -1,9 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
 
 const FooterSection = ({ menuItems, jobCategories }) => {
-  // Assuming `jobCategories` is passed as a prop similar to `menuItems`
-
   return (
     <footer className="bg-gray-600 text-white font-inter">
       <div className="container px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:py-24 py-14">
@@ -16,9 +20,31 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               alt="Home"
             />
           </Link>
-          <p>Str. Observatorului nr 90/06, Cluj-Napoca</p>
-          <p>Tel: +40 720 540 025</p>
-          <p>Email: office@jobdating.ro</p>
+          <p>
+            Str. Observatorului nr 90/06, <br /> Cluj-Napoca
+          </p>
+          <div className="flex flex-col mt-3">
+            <p className="font-bold mb-2">Tel:</p>
+            <div className="">
+              <p>
+                <a href="tel:+40720540025">+40 720 540 025</a>
+              </p>
+              <p>
+                <a href="tel:+40771422783">+40 771 422 783</a>
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col mt-3">
+            <p className="font-bold mb-2">Email:</p>
+            <div className="">
+              <p>
+                <a href="mailto:office@jobdating.ro">office@jobdating.ro</a>
+              </p>
+              <p>
+                <a href="mailto:temporar@jobdating.ro">temporar@jobdating.ro</a>
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Column 2: Menu Items */}
@@ -51,7 +77,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           </ul>
         </div>
 
-        {/* Column 4: Termeni Legali */}
+        {/* Column 4: Termeni Legali + Social Media Icons */}
         <div>
           <h2 className="font-bold mb-4 font-open-sans text-2xl">
             Termeni Legali
@@ -65,6 +91,45 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               </Link>
             </li>
           </ul>
+          {/* Social Media Icons */}
+          <div className="flex gap-4 mt-12">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FontAwesomeIcon
+                icon={faFacebook}
+                size="2x"
+                className="hover:text-gray-300"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FontAwesomeIcon
+                icon={faInstagram}
+                size="2x"
+                className="hover:text-gray-300"
+              />
+            </a>
+            <a
+              href="https://www.tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <FontAwesomeIcon
+                icon={faTiktok}
+                size="2x"
+                className="hover:text-gray-300"
+              />
+            </a>
+          </div>
         </div>
       </div>
 

@@ -21,7 +21,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
       <MenuHeader menuItems={menuItems} />
       <PageHeroSection image={image} page={page}></PageHeroSection>
       <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-        <div className="flex flex-col items-center md:flex-row gap-6 items-start justify-between py-16">
+        <div className="flex flex-col items-center md:flex-row gap-6 justify-between py-16">
           <div className="flex flex-col font-medium font-inter text-gray-500 space-y-4 md:w-1/2">
             <p>
               Scopul nostru este să vă găsim candidați motivați, care nu au doar
