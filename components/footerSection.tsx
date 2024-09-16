@@ -95,7 +95,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           {/* Social Media Icons */}
           <div className="flex gap-4 mt-12">
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/100094691801415"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -107,7 +107,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/dateyourjob/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -119,7 +119,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               />
             </a>
             <a
-              href="https://www.tiktok.com"
+              href="https://www.tiktok.com/@dateyourjob"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
