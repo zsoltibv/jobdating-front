@@ -188,6 +188,7 @@ export async function getAllJobs() {
           }
           id
           date
+          slug
         }
       }
     }
