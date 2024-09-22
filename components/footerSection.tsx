@@ -93,7 +93,6 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               </Link>
             </li>
           </ul>
-
           {/* Social Media Icons */}
           <div className="flex gap-4 mt-12">
             <a
@@ -139,13 +138,35 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               aria-label="YouTube"
             >
               <FontAwesomeIcon
-                icon={faYoutube as IconProp} // Make sure to import the YouTube icon
+                icon={faYoutube as IconProp}
                 size="2x"
                 className="hover:text-gray-300"
               />
             </a>
           </div>
         </div>
+      </div>
+
+      {/* New Image Section */}
+      <div className="flex justify-center gap-5 py-6">
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow">
+          <img
+            className="w-60 h-auto"
+            src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sal.png"
+            alt="Solutionarea Alternativa a Litigiilor"
+          />
+        </a>
+        <a
+          href="https://ec.europa.eu/consumers/odr"
+          target="_blank"
+          rel="nofollow"
+        >
+          <img
+            className="w-60 h-auto"
+            src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sol.png"
+            alt="Solutionarea Online a Litigiilor"
+          />
+        </a>
       </div>
 
       <hr className="border-gray-400" />

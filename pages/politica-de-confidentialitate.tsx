@@ -279,12 +279,13 @@ const PoliticaDeConfidentialitate = ({ menuItems, jobCategories }) => {
               relevant pentru utilizator etc.
             </p>
             <p className="font-normal">
-              JOB DATING S.R.L nu are acces și nu poate controla Coockies setate
+              JOB DATING S.R.L nu are acces și nu poate controla Cookies setate
               de alte site-uri. Aveți obligația de a accesa și de a citi
               Politicile aplicabile prevăzute pe aceste site-uri. Cookies setate
-              de Google Analytics sunt folosite în scop statistic iar cele
-              setate de Facebook sunt folosite în scop statistic și de marketing
-              dacă v-ați dat consimțământul pentru asta.
+              de Google Analytics sunt folosite în scop statistic, cele de
+              Google Recaptcha sunt folosite pentru securitate, iar cele setate
+              de Facebook sunt folosite în scop statistic și de marketing dacă
+              v-ați dat consimțământul pentru asta.
             </p>
             <p className="font-normal">
               <span>
