@@ -26,14 +26,14 @@ const Index = ({
   jobLocations,
   jobWorkTypes,
 }) => {
-  const image = "/img/main-page-bg.jpg";
+  const image = "/img/main-page-bg.webp";
 
   return (
     <>
       <MetaHead
         title="Portal de job-uri | Job Dating"
-        description="This is a description of the page content."
-        keywords="keyword1, keyword2, keyword3"
+        description="Servicii de muncă temporară, recrutare și selecție personal, payroll, administrare de personal."
+        keywords="locuri de muncă, recrutare, selecție personal, joburi, job dating"
       />
       <div style={{ minHeight: "100vh" }} className="bg-gray-100">
         <MenuHeader menuItems={menuItems} />

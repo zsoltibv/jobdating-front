@@ -7,16 +7,15 @@ const InfoSection = () => {
       <div className="container w-full mx-auto px-4 flex justify-center">
         <div className="ml-10 max-w-3xl">
           <h1 className="text-zinc-800 font-open-sans md:text-4.5xl text-3xl font-medium mb-4 md:mb-12">
-            Suntem o companie de resurse umane cu o vastă experiență atât pe
-            piața locală cât și cea din UE.
+            De ce Job Dating?
           </h1>
           <p className="text-zinc-800 font-inter font-light md:text-xl text-md">
-            Prin echipa noastra de specialisiti cu experienta de peste 20 de ani
-            pe piata fortei de munca, oferim servicii de cea mai înaltă calitate
-            și o varietate de soluții care acoperă întreg ciclul de management a
-            resurselor umane, precum leasing personal (muncă temporară),
+            Prin echipa noastră de specialiști cu experiență de peste 20 de ani
+            pe piața forței de muncă, oferim servicii de cea mai înaltă calitate
+            și o varietate de soluții care acoperă întreg ciclul de management
+            al resurselor umane, precum leasing personal (muncă temporară),
             recrutare și selecție forță de muncă, administrare personal și
-            consultanță in domeniul legislatiei muncii.
+            consultanță în domeniul legislației muncii.
           </p>
           <div className="flex justify-start gap-2.5 pt-16">
             <Link href="/despre-noi">

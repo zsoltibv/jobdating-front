@@ -44,7 +44,7 @@ const HeroSection = ({ image }) => {
                     </p>
                     <div className="flex flex-col justify-start gap-4 pt-16">
                       <Link href="/jobs">
-                        <button className="bg-cyan-400 hover:bg-cyan-300 text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+                        <button className="bg-cyan-400 hover:bg-cyan-600  text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
                           Întâlnește-ți jobul
                         </button>
                       </Link>

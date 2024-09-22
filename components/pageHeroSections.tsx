@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function PageHeroSection({ image, page }) {
   return (
     <div className="hero-section md:max-h-[300px] max-h-[200px] flex justify-center items-center overflow-hidden relative">
-      <div>
+      <div className="bg-zinc-800 bg-opacity-65 backdrop-blur-sm">
         <img src={image} alt="Hero Background" />
       </div>
       <div className="absolute inset-0 bg-zinc-700 bg-opacity-65 z-0"></div>

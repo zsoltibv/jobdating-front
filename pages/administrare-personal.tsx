@@ -9,9 +9,10 @@ import FooterSection from "../components/footerSection";
 import ListWithIcons from "../components/listWithIcons";
 import CallToActionBanner from "../components/callToActionBanner";
 import router from "next/router";
+import MetaHead from "../components/MetaHead";
 
 const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
-  const image = "/img/main-page-bg.jpg";
+  const image = "/img/main-page-bg.webp";
   const page = {
     title: "Administrare personal",
     description:
@@ -19,84 +20,91 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
   };
 
   return (
-    <div>
-      <MenuHeader menuItems={menuItems} />
-      <PageHeroSection image={image} page={page}></PageHeroSection>
-      <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
-        <div className="font-medium font-inter py-16">
-          <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
-            De ce să lucrati cu noi pentru administrarea pesonalului?
-          </h1>
-          <div className="block md:flex gap-6 items-center justify-between">
-            <ListWithIcons
-              items={[
-                {
-                  description: "Reduceti costurile cu personalul HR",
-                },
-                {
-                  description:
-                    "Economisiti sumele investite in cursurile de calificare și specializare a personalului HR",
-                },
-                {
-                  description:
-                    "Se evit erori privind aplicarea prevederilor legale,  avand la dispozitie o echipă cu experiență vastă în domeniu",
-                },
-              ]}
-            />
-            <div className="image-container">
-              <img
-                src="/img/admin-personal.png"
-                alt=""
-                className="min-h-96 rounded-md"
+    <>
+      <MetaHead
+        title="Administrare personal | Job Dating"
+        description="Intocmire dosare personal, gestionare angajati REVISAL, situatii, rapoarte, consultanta in domeniul legislatiei muncii."
+        keywords="locuri de muncă, recrutare, selecție personal, joburi, job dating"
+      />
+      <div>
+        <MenuHeader menuItems={menuItems} />
+        <PageHeroSection image={image} page={page}></PageHeroSection>
+        <div className="despre-noi-container container w-full mx-auto px-4 pb-6 h-fit-content">
+          <div className="font-medium font-inter py-16">
+            <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
+              De ce să lucrati cu noi pentru administrarea pesonalului?
+            </h1>
+            <div className="block md:flex gap-6 items-center justify-between">
+              <ListWithIcons
+                items={[
+                  {
+                    description: "Reduceti costurile cu personalul HR",
+                  },
+                  {
+                    description:
+                      "Economisiti sumele investite in cursurile de calificare și specializare a personalului HR",
+                  },
+                  {
+                    description:
+                      "Se evit erori privind aplicarea prevederilor legale,  avand la dispozitie o echipă cu experiență vastă în domeniu",
+                  },
+                ]}
+              />
+              <div className="image-container">
+                <img
+                  src="/img/admin-personal.png"
+                  alt=""
+                  className="min-h-96 rounded-md"
+                />
+              </div>
+            </div>
+            <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
+              Serviciile pe care vi le punem la dispoziție:
+            </h1>
+            <div className="space-y-8">
+              <ListWithIcons
+                items={[
+                  {
+                    description:
+                      "Redactarea și adaptarea contractelor individuale de muncă în funcție de solicitările clienților.",
+                  },
+                  {
+                    description:
+                      "Întocmire/actualizare dosare personal: contracte individuale de muncă, fişe de post, acte adiţionale privind  modificarea ontractului  dividual de muncă, intocmirea deciziilor de încetare / suspendare a contractului individual de muncă",
+                  },
+                  {
+                    description:
+                      "Intocmirea adeverinţelor solicitate de salariaţi; intocmirea programarii concediilor de odihna si evidenta  acestora; intocmirea egulamentului de Ordine Interioară; etc.",
+                  },
+                  {
+                    description:
+                      "Realizarea diverselor situatii, rapoarte privind structura personalului",
+                  },
+                  {
+                    description:
+                      "Oferirea de consultanță în domeniul legislației muncii.",
+                  },
+                  {
+                    description:
+                      "Suport în cazul controalelor efectuate de organele abilitate ale statului.",
+                  },
+                ]}
+              />
+              <CallToActionBanner
+                title="Solicită ofertă acum!"
+                subtitle="Trimite solicitarea, iar colegii noștri vă vor contacta în cel mai scurt timp!"
+                buttonText="Solicită"
+                onButtonClick={() => router.push("/cerere-de-oferta")}
               />
             </div>
           </div>
-          <h1 className="md:text-3xl text-2xl my-6 font-open-sans text-cyan-900">
-            Serviciile pe care vi le punem la dispoziție:
-          </h1>
-          <div className="space-y-8">
-            <ListWithIcons
-              items={[
-                {
-                  description:
-                    "Redactarea și adaptarea contractelor individuale de muncă în funcție de solicitările clienților.",
-                },
-                {
-                  description:
-                    "Întocmire/actualizare dosare personal: contracte individuale de muncă, fişe de post, acte adiţionale privind  modificarea ontractului  dividual de muncă, intocmirea deciziilor de încetare / suspendare a contractului individual de muncă",
-                },
-                {
-                  description:
-                    "Intocmirea adeverinţelor solicitate de salariaţi; intocmirea programarii concediilor de odihna si evidenta  acestora; intocmirea egulamentului de Ordine Interioară; etc.",
-                },
-                {
-                  description:
-                    "Realizarea diverselor situatii, rapoarte privind structura personalului",
-                },
-                {
-                  description:
-                    "Oferirea de consultanță în domeniul legislației muncii.",
-                },
-                {
-                  description:
-                    "Suport în cazul controalelor efectuate de organele abilitate ale statului.",
-                },
-              ]}
-            />
-            <CallToActionBanner
-              title="Solicită ofertă acum!"
-              subtitle="Trimite solicitarea, iar colegii noștri vă vor contacta în cel mai scurt timp!"
-              buttonText="Solicită"
-              onButtonClick={() => router.push("/cerere-de-oferta")}
-            />
-          </div>
         </div>
+        <FooterSection
+          menuItems={menuItems}
+          jobCategories={jobCategories}
+        ></FooterSection>
       </div>
-      <FooterSection
-        menuItems={menuItems}
-        jobCategories={jobCategories}
-      ></FooterSection>
-    </div>
+    </>
   );
 };
 

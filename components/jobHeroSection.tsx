@@ -16,7 +16,7 @@ export default function JobHeroSection({ image, job }) {
     .join(", ");
   const jobCategoriesElements = jobCategories.map((category, index) => (
     <Link href={`/jobs/category/${category.name}`} key={index}>
-      <span className="bg-cyan-400 text-white text-sm font-semibold mr-2 md:px-10 px-6 md:py-1.5 py-1 rounded-2xl">
+      <span className="bg-cyan-400 text-white text-sm font-semibold mr-2 md:px-10 px-6 md:py-1.5 py-1 rounded-2xl hover:bg-cyan-600">
         {category.name}
       </span>
     </Link>
