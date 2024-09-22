@@ -11,6 +11,19 @@ const { protocol, hostname, port, pathname } = new URL(
 
 /** @type {import('next').NextConfig} */
 module.exports = {
+  webpack: (
+    config,
+    { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+  ) => {
+    config.plugins = [
+      ...config.plugins,
+      new webpack.DefinePlugin({
+        __REACT_DEVTOOLS_GLOBAL_HOOK__: "({ isDisabled: true })",
+      }),
+    ];
+    return config;
+  },
+  reactStrictMode: false,
   basePath: "",
   assetPrefix: "",
   images: {

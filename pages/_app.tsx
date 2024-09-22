@@ -14,6 +14,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_WORDPRESS_API_URL,
   cache: new InMemoryCache(),
+  connectToDevTools: false,
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
