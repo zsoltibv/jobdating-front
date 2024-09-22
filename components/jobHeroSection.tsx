@@ -6,6 +6,8 @@ export default function JobHeroSection({ image, job }) {
   const jobWorkTypes = job.workTypes?.nodes || [];
   const jobCategories = job.jobCategories?.nodes || [];
 
+  console.log(jobCategories);
+
   const jobLocationName = jobLocations
     .map((location) => location.name)
     .join(", ");
@@ -13,12 +15,11 @@ export default function JobHeroSection({ image, job }) {
     .map((workType) => workType.name)
     .join(", ");
   const jobCategoriesElements = jobCategories.map((category, index) => (
-    <span
-      key={index}
-      className="bg-cyan-400 text-white text-sm font-semibold mr-2 md:px-10 px-6 md:py-1.5 py-1 rounded-2xl"
-    >
-      {category.name}
-    </span>
+    <Link href={`/jobs/category/${category.name}`} key={index}>
+      <span className="bg-cyan-400 text-white text-sm font-semibold mr-2 md:px-10 px-6 md:py-1.5 py-1 rounded-2xl">
+        {category.name}
+      </span>
+    </Link>
   ));
 
   return (

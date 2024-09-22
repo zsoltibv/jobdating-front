@@ -299,7 +299,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (!params?.id) {
-    console.log("Job ID is undefined or invalid in getStaticProps");
     return { notFound: true };
   }
 

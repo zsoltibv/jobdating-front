@@ -73,8 +73,6 @@ const CerereDeOfertaFormular = () => {
       errorPolicy: "all",
     });
 
-    console.log(result);
-
     if (result?.data.sendRecruiterSubmissionCF?.errors) {
       setMessage(result?.data.sendRecruiterSubmissionCF?.errors[0]);
     } else {

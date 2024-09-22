@@ -27,7 +27,6 @@ const Index = ({
   jobWorkTypes,
 }) => {
   const image = "/img/main-page-bg.jpg";
-  console.log(menuItems);
 
   return (
     <>

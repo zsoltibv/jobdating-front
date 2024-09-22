@@ -62,7 +62,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { categorySlug } = params;
 
   if (!categorySlug) {
-    console.log("Category slug is undefined or invalid in getStaticProps");
     return { notFound: true };
   }
 
