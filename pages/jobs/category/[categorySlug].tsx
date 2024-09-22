@@ -10,6 +10,7 @@ import FooterSection from "../../../components/footerSection";
 import { GetStaticPaths, GetStaticProps } from "next";
 import JobSectionGridCategories from "../../../components/jobSectionGridCategories";
 import PageHeroSection from "../../../components/pageHeroSections";
+import MetaHead from "../../../components/MetaHead";
 
 const JobsByCategory = ({ initialJobs, jobCategories, menuItems }) => {
   const router = useRouter();
@@ -32,14 +33,21 @@ const JobsByCategory = ({ initialJobs, jobCategories, menuItems }) => {
   }, [categorySlug]);
 
   return (
-    <div className="bg-gray-100">
-      <MenuHeader menuItems={menuItems} />
-      <PageHeroSection image={image} page={page}></PageHeroSection>
-      <div className="container mx-auto px-4 py-16 min-h-[40vh]">
-        <JobSectionGridCategories jobs={jobs} />
+    <>
+      <MetaHead
+        title={`Job-uri in ${categorySlug} | Job Dating`}
+        description="Află diverse joburi si aplica rapid  pentru a întâlni noul loc de muncă."
+        keywords="locuri de muncă, recrutare, selecție personal, joburi, job dating"
+      />
+      <div className="bg-gray-100">
+        <MenuHeader menuItems={menuItems} />
+        <PageHeroSection image={image} page={page}></PageHeroSection>
+        <div className="container mx-auto px-4 py-16 min-h-[40vh]">
+          <JobSectionGridCategories jobs={jobs} />
+        </div>
+        <FooterSection menuItems={menuItems} jobCategories={jobCategories} />
       </div>
-      <FooterSection menuItems={menuItems} jobCategories={jobCategories} />
-    </div>
+    </>
   );
 };
 
