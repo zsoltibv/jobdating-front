@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const JobSectionGridCategories = ({ jobs }) => {
   if (!jobs) {
-    return <div>No jobs found</div>;
+    return <div>Niciun job găsit</div>;
   }
 
   return (
