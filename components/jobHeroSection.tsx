@@ -6,8 +6,6 @@ export default function JobHeroSection({ image, job }) {
   const jobWorkTypes = job.workTypes?.nodes || [];
   const jobCategories = job.jobCategories?.nodes || [];
 
-  console.log(jobCategories);
-
   const jobLocationName = jobLocations
     .map((location) => location.name)
     .join(", ");
