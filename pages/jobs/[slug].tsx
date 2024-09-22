@@ -7,6 +7,7 @@ import {
   getAllJobCategories,
   getAllJobs,
   getJobById,
+  getJobBySlug,
   getMenuItemsByMenuName,
 } from "../../lib/api";
 import JobHeroSection from "../../components/jobHeroSection";
@@ -288,7 +289,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   // Generate paths with the job IDs
   const paths = allJobs.map((job) => ({
-    params: { id: job.id.toString() },
+    params: { id: job.id.toString(), slug: job.slug },
   }));
 
   return {
@@ -298,11 +299,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params?.id) {
+  if (!params?.slug) {
     return { notFound: true };
   }
 
-  const job = await getJobById(params.id);
+  const job = await getJobBySlug(params.slug);
   const allMenuItems = await getMenuItemsByMenuName();
   const jobCategories = await getAllJobCategories();
 

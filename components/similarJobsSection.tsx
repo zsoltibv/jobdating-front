@@ -21,7 +21,7 @@ const SimilarJobsSection = ({ jobCategories }) => {
       <h1 className="md:text-3xl text-2xl my-6">Joburi Similare:</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {similarJobs.map((job) => (
-          <Link key={job.id} href={`/jobs/${job.id}`}>
+          <Link key={job.id} href={`/jobs/${job.slug}`}>
             <div
               key={job.id}
               className="bg-white border px-8 rounded-md hover:shadow-lg hover:bg-gray-100 transition duration-300"

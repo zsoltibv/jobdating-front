@@ -8,8 +8,6 @@ import {
   getAllJobs,
   getMenuItemsByMenuName,
 } from "../lib/api";
-import { gql, useMutation } from "@apollo/client";
-import Link from "next/link";
 import JobSection from "../components/jobSections";
 import PageHeroSection from "../components/pageHeroSections";
 import FooterSection from "../components/footerSection";

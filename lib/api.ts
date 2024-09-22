@@ -51,6 +51,7 @@ export async function getJobsByCategory(categories) {
           node{
             id
             date
+            slug
             jobFields {
                 description
                 name
@@ -107,11 +108,49 @@ export async function getJobById(id) {
           }
         }
         id
+        slug
       }
     }
   `,
     {
       variables: { id },
+    }
+  );
+
+  return data.job;
+}
+
+export async function getJobBySlug(slug) {
+  const data = await fetchAPI(
+    `
+    query GET_JOB_BY_SLUG($slug: ID!) {
+      job(id: $slug, idType: URI) {
+        jobFields {
+          name
+          description
+        }
+        jobCategories {
+          nodes {
+            name
+          }
+        }
+        locations {
+          nodes {
+            name
+          }
+        }
+        workTypes {
+          nodes {
+            name
+          }
+        }
+        id
+        slug
+      }
+    }
+  `,
+    {
+      variables: { slug },
     }
   );
 
@@ -222,6 +261,7 @@ export async function getLatestJobs(jobCount) {
           }
           id
           date
+          slug
         }
       }
     }

@@ -143,7 +143,7 @@ const JobSection = ({ jobs, jobCategories, jobLocations, jobWorkTypes }) => {
       </div>
       <div className="grid gap-4 font-open-sans">
         {filteredJobs.map((job) => (
-          <Link key={job.id} href={`/jobs/${job.id}`}>
+          <Link key={job.id} href={`/jobs/${job.slug}`}>
             <div
               key={job.id}
               className="bg-white border px-8 rounded-md hover:shadow-lg hover:bg-gray-100 transition duration-300"
