@@ -18,7 +18,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
           <Link href="/">
             <img
               className="h-12 w-auto mb-8"
-              src="http://api.jobdating.ro/wp-content/uploads/2024/03/site_feher.png"
+              src="https://api.jobdating.ro/wp-content/uploads/2024/03/site_feher.png"
               alt="Home"
             />
           </Link>
