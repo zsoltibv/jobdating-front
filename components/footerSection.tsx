@@ -5,6 +5,7 @@ import {
   faFacebook,
   faInstagram,
   faTiktok,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
@@ -92,6 +93,7 @@ const FooterSection = ({ menuItems, jobCategories }) => {
               </Link>
             </li>
           </ul>
+
           {/* Social Media Icons */}
           <div className="flex gap-4 mt-12">
             <a
@@ -126,6 +128,18 @@ const FooterSection = ({ menuItems, jobCategories }) => {
             >
               <FontAwesomeIcon
                 icon={faTiktok as IconProp}
+                size="2x"
+                className="hover:text-gray-300"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCjzQPvmBNmaEhTETAYfMJNQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <FontAwesomeIcon
+                icon={faYoutube as IconProp} // Make sure to import the YouTube icon
                 size="2x"
                 className="hover:text-gray-300"
               />
