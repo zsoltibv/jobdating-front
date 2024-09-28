@@ -54,7 +54,7 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
                 <img
                   src="/img/admin-personal.png"
                   alt=""
-                  className="min-h-96 rounded-md"
+                  className="md:min-h-96 rounded-md"
                 />
               </div>
             </div>

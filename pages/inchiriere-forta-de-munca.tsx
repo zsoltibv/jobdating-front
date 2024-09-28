@@ -94,7 +94,7 @@ const InchiriereFortaDeMunca = ({ menuItems, jobCategories }) => {
               <img
                 src="/img/munca-temporara.png"
                 alt=""
-                className="min-h-96 rounded-md"
+                className="md:min-h-96 rounded-md"
               />
             </div>
           </div>

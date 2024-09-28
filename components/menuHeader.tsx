@@ -61,8 +61,8 @@ const MenuHeader = ({ menuItems }) => {
         </nav>
         <div
           className={`${
-            isMenuOpen ? "pb-4" : "pb-0"
-          } transition-all duration-300 ease-in-out mt-2 bg-gray-100 md:bg-transparent`}
+            isMenuOpen ? "pb-4 pt-4" : "pb-0"
+          } transition-all duration-300 ease-in-out bg-gray-100 md:bg-transparent`}
         >
           <ul
             className={`${
@@ -71,12 +71,12 @@ const MenuHeader = ({ menuItems }) => {
           >
             {organizedMenuItems.map((item) => (
               <Fragment key={item.id}>
-                <li className="group relative md:inline-block md:my-0 my-2">
+                <li className="group relative md:inline-block md:my-0 my-0">
                   <button
                     onClick={() => toggleDropdown(item.id)}
                     className={`${
                       router.pathname === item.url ? "text-black font-bold" : ""
-                    } text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 py-3`}
+                    } text-black md:text-zinc-800 font-normal flex items-center justify-between w-full px-4 md:py-3 py-1.5`}
                   >
                     {item.children.length == 0 && (
                       <Link href={item.url}>

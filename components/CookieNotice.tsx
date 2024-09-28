@@ -20,7 +20,7 @@ const CookieNotice = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 bg-cyan-600 text-white p-4 shadow-lg rounded-md w-80">
+    <div className="fixed bottom-4 right-4 bg-cyan-600 text-white p-4 shadow-lg rounded-md w-80 z-20">
       <p>
         Această website folosește cookie-uri pentru a îmbunătăți experiența
         utilizatorului.
