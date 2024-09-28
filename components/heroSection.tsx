@@ -39,8 +39,8 @@ const HeroSection = ({ image }) => {
                       Date Your Job
                     </h1>
                     <p className="text-white font-inter font-light md:text-xl text-md max-w-md">
-                      Înregistrează-te în baza noastră de date pentru a întâlni
-                      noul loc de muncă !
+                      Înregistrează-te în baza noastră de date pentru a-ți
+                      întâlni noul loc de muncă !
                     </p>
                     <div className="flex flex-col justify-start gap-4 pt-16">
                       <Link href="/jobs">
@@ -69,7 +69,7 @@ const HeroSection = ({ image }) => {
                     </h1>
                     <p className="text-white font-inter font-light md:text-xl text-md max-w-md">
                       Apelează cu încredere la serviciile de recrutare de
-                      personal sau la soluții de forță de muncă temporară!
+                      personal sau la soluții de muncă temporară!
                     </p>
                     <div className="flex flex-col justify-start gap-4 pt-16">
                       <Link href="/cerere-de-oferta">

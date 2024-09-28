@@ -69,7 +69,7 @@ const DespreNoi = ({ menuItems, jobCategories }) => {
                   <strong>bază de date diversificată la nivel național</strong>,
                   asigurând necesarul de personal adaptat nevoilor dvs. într-un
                   timp cât mai scurt. Oferim, de asemenea,{" "}
-                  <strong>garanție pentru serviciul nostru</strong>.
+                  <strong>garanție pentru serviciile noastre</strong>.
                 </p>
                 <p className="py-2">
                   Ne adresăm persoanelor aflate în căutarea unui loc de muncă,

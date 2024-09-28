@@ -12,8 +12,8 @@ const InfoSection = () => {
           <p className="text-zinc-800 font-inter font-light md:text-xl text-md">
             Prin echipa noastră de specialiști cu experiență de peste 20 de ani
             pe piața forței de muncă, oferim servicii de cea mai înaltă calitate
-            și o varietate de soluții care acoperă întreg ciclul de management
-            al resurselor umane, precum leasing personal (muncă temporară),
+            și o varietate de soluții care acoperă întreg ciclul de management a
+            resurselor umane, precum leasing personal (muncă temporară),
             recrutare și selecție forță de muncă, administrare personal și
             consultanță în domeniul legislației muncii.
           </p>

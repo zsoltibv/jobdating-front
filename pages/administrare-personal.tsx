@@ -74,11 +74,11 @@ const RecrutareSiSelectiePersonal = ({ menuItems, jobCategories }) => {
                   },
                   {
                     description:
-                      "Intocmirea adeverinţelor solicitate de salariaţi; intocmirea programarii concediilor de odihna si evidenta  acestora; intocmirea egulamentului de Ordine Interioară; etc.",
+                      "Întocmirea adeverinţelor solicitate de salariaţi; întocmirea programării concediilor de odihnă si evidență  acestora; întocmirea regulamentului de Ordine Interioară; etc.",
                   },
                   {
                     description:
-                      "Realizarea diverselor situatii, rapoarte privind structura personalului",
+                      "Realizarea diverselor situații, rapoarte privind structura personalului",
                   },
                   {
                     description:
