@@ -28,7 +28,7 @@ const HeroSection = ({ image }) => {
             {/* Slide 1 */}
             <div
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                activeSlide === 0 ? "opacity-100" : "opacity-0"
+                activeSlide === 0 ? "opacity-100 z-30" : "opacity-0 z-20"
               } flex items-center`}
             >
               <div className="relative w-full max-w-2xl px-4">
@@ -43,7 +43,7 @@ const HeroSection = ({ image }) => {
                       întâlni noul loc de muncă !
                     </p>
                     <div className="flex flex-col justify-start gap-4 pt-16">
-                      <Link href="/jobs">
+                      <Link href="/inregistrare">
                         <button className="bg-cyan-400 hover:bg-cyan-600  text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
                           Întâlnește-ți jobul
                         </button>
@@ -57,7 +57,7 @@ const HeroSection = ({ image }) => {
             {/* Slide 2 */}
             <div
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                activeSlide === 1 ? "opacity-100" : "opacity-0"
+                activeSlide === 1 ? "opacity-100 z-30" : "opacity-0 z-20"
               } flex items-center`}
             >
               <div className="relative w-full max-w-2xl px-4">
@@ -73,7 +73,7 @@ const HeroSection = ({ image }) => {
                     </p>
                     <div className="flex flex-col justify-start gap-4 pt-16">
                       <Link href="/cerere-de-oferta">
-                        <button className="bg-cyan-400 hover:bg-cyan-300 text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
+                        <button className="bg-cyan-400 hover:bg-cyan-600  text-white font-inter py-3 md:px-8 px-6 rounded hover:bg-opacity-90 transition duration-300 ease-in-out">
                           Întâlnește-ți angajatul
                         </button>
                       </Link>
