@@ -23,6 +23,7 @@ Install dependencies
 Run project in development mode
 
 ```bash
+  Rename .env.local.example to .env.local
   npm run dev
 ```
 ## References
